@@ -17,20 +17,18 @@ data list a :=
   | nil
   | cons a (list a).
 
-val unit : type.
-val one : unit.
-
 data tree :=
-  | node unit (list tree).  # need to specialize list_tree here
+  | node (list tree).  # need to specialize list_tree here
 
 rec size : tree -> nat :=
-  forall x l. size (node x l) = succ (size_list l)
+  forall l. size (node l) = succ (size_list l)
 and size_list : list tree -> nat :=
   size_list nil = zero;
   forall t l. size_list (cons t l) = plus (size t) (size_list l).
 
 # compute size of some tree
 goal
-  let t := node one (cons (node one nil) nil) in
-  let t2 := node one (cons t (cons t nil)) in
+  let t0 := node nil in
+  let t := node (cons t0 (cons t0 nil)) in
+  let t2 := node (cons t (cons t nil)) in
   exists n. size t2 = n.
