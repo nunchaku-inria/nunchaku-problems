@@ -1,4 +1,4 @@
-# Gives: "failure: expected pair key/value in the model"
+# Outcome: "failure: expected pair key/value in the model"
 # Expected: an empty model
 
 goal true.

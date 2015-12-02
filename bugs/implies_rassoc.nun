@@ -1,0 +1,7 @@
+# Outcome: Parse error
+# Expected: UNSAT (i.e. => is right-associative)
+
+val a : prop.
+val b : prop.
+
+goal ~ (a => b => a).
