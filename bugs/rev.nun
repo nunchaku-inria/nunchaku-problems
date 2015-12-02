@@ -1,0 +1,19 @@
+# The model output says "xs_ -> xs_". This gives no information whatsoever about "xs_".
+# There must be a way to express it in terms of constructors and "@uc_" atoms.
+
+val a_ : type.
+
+data list_ :=
+  Nil_
+| Cons_ a_ list_.
+
+val xs_ : list_.
+
+rec append_ : list_ -> list_ -> list_ :=
+  forall ys_. append_ Nil_ ys_ = ys_;
+  forall x_ xs2_ ys_. append_ (Cons_ x_ xs2_) ys_ = Cons_ x_ (append_ xs2_ ys_).
+rec rev_ : list_ -> list_ :=
+  rev_ Nil_ = Nil_;
+  forall x_ xs2_. rev_ (Cons_ x_ xs2_) = append_ (rev_ xs2_) (Cons_ x_ Nil_).
+
+goal (rev_ (rev_ xs_) = xs_).
