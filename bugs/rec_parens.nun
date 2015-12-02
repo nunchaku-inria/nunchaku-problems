@@ -1,0 +1,13 @@
+val a : type.
+
+rec f : a -> a :=
+  forall X. (f X) = X.
+
+rec g : a -> a -> a :=
+  forall X Y. (g X) Y = X.
+
+rec h : a -> a :=
+  (forall X. (h X) = X).
+
+rec i : a -> a -> a :=
+  (forall X Y. (i X) Y = X).
