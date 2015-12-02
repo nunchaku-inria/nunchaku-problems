@@ -1,4 +1,4 @@
 # Outcome: "failure: expected pair key/value in the model"
-# Expected: an empty model
+# Expect: SAT  (an empty model)
 
 goal true.

@@ -1,3 +1,5 @@
+# expect: unknown
+
 val a : type.
 
 rec f : a -> a :=

@@ -1,5 +1,5 @@
 # Outcome: CVC4 parse error on "distinct"
-# Expected: SAT
+# Expect: SAT
 
 val a : type.
 

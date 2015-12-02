@@ -1,5 +1,5 @@
 # Outcome: File "src/core/transformations/ElimRecursion.ml", line 274, characters 4-10: Assertion failed
-# Expected: SAT or UNSAT
+# Expect: unknown
 
 val a : type.
 

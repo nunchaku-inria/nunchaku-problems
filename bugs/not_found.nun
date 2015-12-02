@@ -1,5 +1,5 @@
 # Outcome: "Not_found"
-# Expected: SAT or UNSAT
+# Expect: unknown
 
 val a : type.
 
