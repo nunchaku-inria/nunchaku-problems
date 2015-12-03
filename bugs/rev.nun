@@ -1,4 +1,4 @@
-# The model output says "xs_ -> xs_". This gives no information whatsoever about "xs_".
+# Outcome: The model output says "xs_ -> xs_". This gives no information whatsoever about "xs_".
 # There must be a way to express it in terms of constructors and "@uc_" atoms.
 
 # expect: sat
