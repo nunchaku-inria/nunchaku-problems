@@ -1,5 +1,4 @@
-# Outcome: Parse error
-# Expect: UNSAT (i.e. => is right-associative)
+# expect: UNSAT
 
 val a : prop.
 val b : prop.
