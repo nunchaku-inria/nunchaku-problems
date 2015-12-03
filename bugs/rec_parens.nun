@@ -1,3 +1,4 @@
+# outcome: parsing bugs in each of the following
 # expect: unknown
 
 val a : type.

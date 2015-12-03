@@ -4,8 +4,8 @@
 val a : type.
 
 val p : a -> prop.
-val x : prop.
+val x : a.
 val y : a.
 val z : a.
 
-goal p (if ~ x then z else y).
+goal p (if x = x then y else z).
