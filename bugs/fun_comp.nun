@@ -1,5 +1,5 @@
-# Outcome: "CVC4 threw an "unexpected" exception. libc++abi.dylib: unexpected_handler unexpectedly returned"
-# Expect: SAT (or at least an error that we are leaving the FO fragment)
+# outcome: "CVC4 threw an "unexpected" exception. libc++abi.dylib: unexpected_handler unexpectedly returned"
+# expect: SAT (or at least an error that we are leaving the FO fragment)
 
 val a : type.
 val b : type.
