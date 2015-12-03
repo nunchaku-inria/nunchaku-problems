@@ -1,7 +1,7 @@
 # outcome: parsing bugs in some of the following
 #   (which would not occur if the "rec" equations were extracted from the AST instead of
 #   using a dedicated parser)
-# expect: unknown
+# expect: sat
 
 val a : type.
 

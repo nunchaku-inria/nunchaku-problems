@@ -1,4 +1,4 @@
-# expect: sat
+# Expect: sat
 
 val a : type.
 
