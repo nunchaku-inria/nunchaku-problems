@@ -1,6 +1,3 @@
-# Outcome: The model output says "xs_ -> xs_". This gives no information whatsoever about "xs_".
-# There must be a way to express it in terms of constructors and "@uc_" atoms.
-
 # expect: sat
 
 val a_ : type.
@@ -18,4 +15,4 @@ rec rev_ : list_ -> list_ :=
   rev_ Nil_ = Nil_;
   forall x_ xs2_. rev_ (Cons_ x_ xs2_) = append_ (rev_ xs2_) (Cons_ x_ Nil_).
 
-goal (rev_ (rev_ xs_) = xs_).
+goal (rev_ (rev_ xs_) = xs_) && ~ (xs_ = Nil_).

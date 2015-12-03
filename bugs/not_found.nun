@@ -1,5 +1,5 @@
-# Outcome: "Not_found"
-# Expect: unknown
+# outcome: "Not_found"
+# expect: unknown
 
 val a : type.
 
