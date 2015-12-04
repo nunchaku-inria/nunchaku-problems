@@ -1,7 +1,16 @@
 # outcome: term `true` is not in the first-order fragment: no builtin in terms
-#   (in SMT, booleans can be nested in terms)
+#   (in SMT-LIB, formulas can be nested in terms)
 # expect: sat
 
-val p : prop.
+val a : type.
 
-goal p = true.
+val p : prop.
+val q : prop -> prop.
+val r : a -> prop.
+
+axiom p = true.
+axiom q p.
+axiom q (p => p).
+axiom q (forall x. r x).
+
+goal true.
