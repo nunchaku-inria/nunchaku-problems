@@ -1,0 +1,7 @@
+# outcome: term `true` is not in the first-order fragment: no builtin in terms
+#   (in SMT, booleans can be nested in terms)
+# expect: sat
+
+val p : prop.
+
+goal p = true.
