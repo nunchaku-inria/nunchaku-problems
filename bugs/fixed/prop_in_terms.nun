@@ -1,5 +1,3 @@
-# outcome: term `true` is not in the first-order fragment: no builtin in terms
-#   (in SMT-LIB, formulas can be nested in terms)
 # expect: sat
 
 val a : type.
