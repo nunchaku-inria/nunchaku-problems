@@ -1,5 +1,5 @@
 
-all: update fixed_bugs bugs tests
+all: update fixed_bugs tests bugs
 
 update:
 	@yes | opam upgrade nunchaku 
