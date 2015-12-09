@@ -16,12 +16,12 @@ rec test_foo : foo -> prop :=
     end.
 
 rec swap_foo : foo -> foo :=
-  swap_foo = fun x.
+  swap_foo = (fun x.
     match x with
     | A -> B
     | B -> C
     | C -> A
-    end.
+    end).
 
 
 goal (exists x. test_foo x) && (exists x. swap_foo x = C).
