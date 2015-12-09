@@ -6,6 +6,6 @@ data nat := z | s nat .
 
 val something : prop
 
-pred even : nat -> nat :=
+pred even : nat -> prop :=
   forall n. even n || something.
 
