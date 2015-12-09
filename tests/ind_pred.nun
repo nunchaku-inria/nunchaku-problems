@@ -14,6 +14,21 @@ pred odd : nat -> prop :=
   forall n. odd n => odd n;
   forall n. odd n => odd (s (s n)).
 
+val iota : type.
+val t : iota.
 
-goal even (s (s (s (s z)))) && odd (s (s (s (s (s z))))).
+data list a :=
+  | nil
+  | cons a (list a).
+
+# polymorphic
+pred has_len
+  : pi a. list a -> nat -> prop
+  :=
+  has_len nil z;
+  forall n x l. has_len l n => has_len (cons x l) (s n).
+
+goal even (s (s (s (s z))))
+  && odd (s (s (s (s (s z)))))
+  && has_len (cons t (cons t nil)) (s (s (s z))).
 
