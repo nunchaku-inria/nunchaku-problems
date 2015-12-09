@@ -1,0 +1,19 @@
+
+# basic tests for inductive predicates
+# expect: SAT
+
+data nat := z | s nat .
+
+pred [wf] even : nat -> nat :=
+  even z;
+  forall n. even n => even (s (s n)).
+
+# not exactly well-founded
+pred odd : nat -> nat :=
+  odd (s z);
+  forall n. odd n => odd n;
+  forall n. odd n => odd (s (s n)).
+
+
+goal even (s (s (s (s z)))) && odd (s (s (s (s (s z))))).
+
