@@ -1,0 +1,12 @@
+
+timeout=5
+prover = "nunchaku"
+problems = ".*.nun"
+
+[nunchaku]
+
+cmd = "nunchaku --timeout $timeout $file"
+unsat = "UNSAT"
+sat = "SAT:"
+unknown = "TIMEOUT"
+
