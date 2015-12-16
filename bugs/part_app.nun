@@ -1,5 +1,5 @@
-# outcome: "Not_found"
-# expect: unknown
+# outcome: defined function insert is partially applied (2 arguments, expected 3)
+# expect: sat
 
 val a : type.
 
@@ -20,4 +20,4 @@ rec set : list -> a -> prop :=
 rec distinct : list -> prop :=
   forall Vx Vxs1. distinct (Cons Vx Vxs1) = (~ (set Vxs1 Vx)).
 
-goal distinct (Cons a2 (Cons b Nil)) => false.
+goal distinct (Cons a2 (Cons b Nil)).
