@@ -1,4 +1,4 @@
-# expect: unknown
+# expect: error
 
 val a : type.
 
