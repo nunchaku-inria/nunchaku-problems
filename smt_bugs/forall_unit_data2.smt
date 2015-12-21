@@ -1,6 +1,6 @@
 ; cvc4 --lang smt --finite-model-find
 
-; This problem returns "sat", but it is in fact "unsat". The model is rubbish.
+; This problem returns "sat", but it is in fact "unsat" (cf. Z3). The model is rubbish.
 
 (set-logic ALL_SUPPORTED)
 (declare-sort a 0)
