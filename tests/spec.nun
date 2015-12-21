@@ -17,12 +17,9 @@ data list a :=
   | nil
   | cons a (list a).
 
-# partial funs
-val head : pi a. list a -> a.
-val tail : pi a. list a -> list a.
-
 # specification for lists of polymorphic lists
-spec head and tail :=
+spec head : pi a. list a -> a
+and tail : pi a. list a -> list a :=
     forall x l. head (cons x l) = x;
     forall x l. tail (cons x l) = l.
 
