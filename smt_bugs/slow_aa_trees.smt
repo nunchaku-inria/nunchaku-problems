@@ -185,6 +185,8 @@
 (declare-fun x () nat)
 (assert
  (and (wfx t) 
+;  (= t (N (Suc zero) (Suc zero) X X))
+;  (= x zero)
   (and (not (wfx (insorl t x))) 
    (exists ((a/160 G_wfx)) (= (insorl t x) (proj_G_wfx_0 a/160))) 
    (exists ((a/161 G_insorl))
