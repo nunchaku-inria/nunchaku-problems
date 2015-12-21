@@ -1,5 +1,5 @@
 # outcome: SAT after 40 s or so, and a too large countermodel
-# expected: faster, e.g. 1 s (cf. Nitpick)
+# expected: SAT  faster, e.g. 1 s (cf. Nitpick)
 
 data nat :=
   zero
