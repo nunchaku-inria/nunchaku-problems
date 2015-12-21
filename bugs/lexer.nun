@@ -1,5 +1,5 @@
 # outcome: could not parse `zero.nun`: lexing error: lexer fails on char '0'
-# excepted: line and col numbers
+# expected: ERROR line and col numbers
 
 data nat :=
   zero
