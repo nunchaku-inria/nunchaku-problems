@@ -1,0 +1,13 @@
+# outcome: CVC4.CVC4_error("unexpected answer from CVC4: Type")
+# expected: sat
+
+data list :=
+  Nil
+| Cons prop list.
+
+val x : list.
+
+rec hd : list -> prop :=
+  forall (x21 : prop) (x22 : list). hd (Cons x21 x22) = x21.
+
+goal hd x.
