@@ -2,6 +2,7 @@
 all: update fixed_bugs tests bugs
 
 update:
+	@killall nunchaku
 	@yes | opam install nunchaku
 	@yes | opam upgrade nunchaku 
 
