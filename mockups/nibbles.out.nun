@@ -51,7 +51,7 @@ axiom
   forall (a : alpha_n2n).
     gamma1_n2n a = inc =>
     app_n2n inc (gamma2_n2n a) =
-      match (gamma2_n2n a) with
+      match gamma2_n2n a with
       | N0 -> N1
       | N1 -> N2
       | N2 -> N3
@@ -59,7 +59,7 @@ axiom
       | N4 -> N5
       | N5 -> N6
       | N6 -> N7
-      | N7 -> N7 # here
+      | N7 -> N8
       | N8 -> N9
       | N9 -> Na
       | Na -> Nb
@@ -72,6 +72,34 @@ axiom
 
 axiom ~ (HAS_PROTO_n2n inc)
  || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = inc && gamma2_n2n b = x).
+
+val ink : n2n.
+
+axiom
+  forall (a : alpha_n2n).
+    gamma1_n2n a = ink =>
+    app_n2n ink (gamma2_n2n a) =
+      match gamma2_n2n a with
+      | N0 -> N1
+      | N1 -> N2
+      | N2 -> N3
+      | N3 -> N4
+      | N4 -> N5
+      | N5 -> N6
+      | N6 -> N7
+      | N7 -> N7 # sic
+      | N8 -> N9
+      | N9 -> Na
+      | Na -> Nb
+      | Nb -> Nc
+      | Nc -> Nd
+      | Nd -> Ne
+      | Ne -> Nf
+      | Nf -> N0
+      end.
+
+axiom ~ (HAS_PROTO_n2n ink)
+ || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = ink && gamma2_n2n b = x).
 
 data byte :=
   Byte nib nib.
@@ -95,5 +123,8 @@ axiom
 
 val b : byte.
 
-goal mapnibs inc b = b
-  && (exists (z : alpha_mapnibs). gamma1_mapnibs z = inc && gamma2_mapnibs z = b).
+#goal mapnibs inc b = b
+#  && (exists (z : alpha_mapnibs). gamma1_mapnibs z = inc && gamma2_mapnibs z = b).
+
+#goal inc = ink
+#  && HAS_PROTO_n2n inc.

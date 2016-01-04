@@ -24,7 +24,7 @@ rec inc : nib -> nib :=
   inc N4 = N5;
   inc N5 = N6;
   inc N6 = N7;
-  inc N7 = N7; # wrong
+  inc N7 = N8;
   inc N8 = N9;
   inc N9 = Na;
   inc Na = Nb;
@@ -33,6 +33,24 @@ rec inc : nib -> nib :=
   inc Nd = Ne;
   inc Ne = Nf;
   inc Nf = N0.
+
+rec ink : nib -> nib :=
+  ink N0 = N1;
+  ink N1 = N2;
+  ink N2 = N3;
+  ink N3 = N4;
+  ink N4 = N5;
+  ink N5 = N6;
+  ink N6 = N7;
+  ink N7 = N7; # sic
+  ink N8 = N9;
+  ink N9 = Na;
+  ink Na = Nb;
+  ink Nb = Nc;
+  ink Nc = Nd;
+  ink Nd = Ne;
+  ink Ne = Nf;
+  ink Nf = N0.
 
 data byte :=
   Byte nib nib.
