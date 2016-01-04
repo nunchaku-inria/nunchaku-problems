@@ -1,0 +1,98 @@
+data nib :=
+  N0
+| N1
+| N2
+| N3
+| N4
+| N5
+| N6
+| N7
+| N8
+| N9
+| Na
+| Nb
+| Nc
+| Nd
+| Ne
+| Nf.
+
+val n2n : type.
+val app_n2n : n2n -> nib -> nib.
+val proto_n2n : n2n -> nib.
+
+val alpha_n2n : type.
+val gamma1_n2n : alpha_n2n -> n2n.
+val gamma2_n2n : alpha_n2n -> nib.
+
+val HAS_PROTO_n2n : n2n -> prop.
+
+axiom
+  forall (h : n2n).
+    HAS_PROTO_n2n h = (exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = proto_n2n h).
+
+val IN_app_n2n : n2n -> nib -> prop.
+
+axiom
+  forall (h : n2n) (j : nib).
+    IN_app_n2n h j = (exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = j).
+
+val IN_APP_n2n : n2n -> nib -> prop.
+
+axiom
+  forall (h : n2n) (j : nib).
+    IN_APP_n2n h j = (exists (b : alpha_n2n). gamma1_n2n b = h && (gamma2_n2n b = j || gamma2_n2n b = proto_n2n h)).
+
+val APP_n2n : n2n -> nib -> nib.
+
+axiom
+  forall (h : n2n) (j : nib).
+#    APP_n2n h j = app_n2n h (if exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = j then j else proto_n2n h).
+    APP_n2n h j = app_n2n h (if IN_app_n2n h j then j else proto_n2n h).
+
+val inc : n2n.
+
+axiom
+  app_n2n inc N0 = N1;
+  app_n2n inc N1 = N2;
+  app_n2n inc N2 = N3;
+  app_n2n inc N3 = N4;
+  app_n2n inc N4 = N5;
+  app_n2n inc N5 = N6;
+  app_n2n inc N6 = N7;
+  app_n2n inc N7 = N8;
+  app_n2n inc N8 = N9;
+  app_n2n inc N9 = Na;
+  app_n2n inc Na = Nb;
+  app_n2n inc Nb = Nc;
+  app_n2n inc Nc = Nd;
+  app_n2n inc Nd = Ne;
+  app_n2n inc Ne = Nf;
+  app_n2n inc Nf = N0.
+
+axiom ~ (HAS_PROTO_n2n inc)
+ || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = inc && gamma2_n2n b = x).
+
+data byte :=
+  Byte nib nib.
+
+val alpha_mapnibs : type.
+val gamma1_mapnibs : alpha_mapnibs -> n2n.
+val gamma2_mapnibs : alpha_mapnibs -> byte.
+
+val mapnibs : n2n -> byte -> byte.
+
+axiom
+  forall (a : alpha_mapnibs).
+    mapnibs (gamma1_mapnibs a) (gamma2_mapnibs a) =
+    match gamma2_mapnibs a with
+    | Byte m n -> Byte (APP_n2n (gamma1_mapnibs a) m) (APP_n2n (gamma1_mapnibs a) n)
+    end
+  &&
+    match gamma2_mapnibs a with
+    | Byte m n -> IN_app_n2n (gamma1_mapnibs a) m && IN_app_n2n (gamma1_mapnibs a) n
+    end.
+
+val b : byte.
+
+goal mapnibs inc b = b
+  && (exists (z : alpha_mapnibs). gamma1_mapnibs z = inc && gamma2_mapnibs z = b).

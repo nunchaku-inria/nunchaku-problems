@@ -46,8 +46,8 @@ val APP_n2n : n2n -> nib -> nib.
 
 axiom
   forall (h : n2n) (j : nib).
-# BUG:    APP_n2n h j = app_n2n h (if exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = j then j else proto_n2n h).
-    APP_n2n h j = app_n2n h (if IN_app_n2n h j then j else proto_n2n h).
+    APP_n2n h j = app_n2n h (if exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = j then j else proto_n2n h).
+#    APP_n2n h j = app_n2n h (if IN_app_n2n h j then j else proto_n2n h).
 
 axiom forall (f : n2n) (g : n2n).
   f = g
@@ -78,8 +78,8 @@ axiom
       | Nf -> N0
       end.
 
-axiom ~ (HAS_PROTO_n2n inc).
-# || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = inc && gamma2_n2n b = x).
+axiom ~ (HAS_PROTO_n2n inc)
+ || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = inc && gamma2_n2n b = x).
 
 val ink : n2n.
 
@@ -106,8 +106,8 @@ axiom
       | Nf -> N0
       end.
 
-axiom ~ (HAS_PROTO_n2n ink).
-# || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = ink && gamma2_n2n b = x).
+axiom ~ (HAS_PROTO_n2n ink)
+ || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = ink && gamma2_n2n b = x).
 
 data byte :=
   Byte nib nib.
@@ -133,6 +133,9 @@ val b : byte.
 
 goal mapnibs ink b = b
   && (exists (z : alpha_mapnibs). gamma1_mapnibs z = ink && gamma2_mapnibs z = b).
+
+#axiom
+#  forall (f : n2n). f = inc || f = ink.
 
 #val wit : n2n.
 #
