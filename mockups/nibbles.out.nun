@@ -1,0 +1,78 @@
+data nib :=
+  N0
+| N1
+| N2
+| N3
+| N4
+| N5
+| N6
+| N7
+| N8
+| N9
+| Na
+| Nb
+| Nc
+| Nd
+| Ne
+| Nf.
+
+val n2n : type.
+val app_n2n : n2n -> nib -> nib.
+val proto_n2n : n2n -> nib.
+
+val alpha_n2n : type.
+val gamma1_n2n : alpha_n2n -> n2n.
+val gamma2_n2n : alpha_n2n -> nib.
+
+rec HAS_PROTO_n2n : n2n -> prop :=
+  forall (h : n2n).
+    HAS_PROTO_n2n h = (exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = proto_n2n h).
+
+rec IN_APP_n2n : n2n -> nib -> prop :=
+  forall (h : n2n) (j : nib).
+    IN_APP_n2n h j = (exists (b : alpha_n2n). gamma1_n2n b = h && (gamma2_n2n b = j || gamma2_n2n b = proto_n2n h)).
+
+rec APP_n2n : n2n -> nib -> nib :=
+  forall (h : n2n) (j : nib).
+    APP_n2n h j = app_n2n h (if exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = j then j else proto_n2n h).
+
+# TODO: Simplify by using "app_n2n" directly
+axiom forall (f : n2n) (g : n2n).
+  f = g
+|| (exists (x : nib). IN_APP_n2n f x && IN_APP_n2n g x && ~ (APP_n2n f x = APP_n2n g x)).
+
+val inc : n2n.
+
+axiom
+  app_n2n inc N0 = N1;
+  app_n2n inc N1 = N2;
+  app_n2n inc N2 = N3;
+  app_n2n inc N3 = N4;
+  app_n2n inc N4 = N5;
+  app_n2n inc N5 = N6;
+  app_n2n inc N6 = N7;
+  app_n2n inc N7 = N8; # right
+  app_n2n inc N8 = N9;
+  app_n2n inc N9 = Na;
+  app_n2n inc Na = Nb;
+  app_n2n inc Nb = Nc;
+  app_n2n inc Nc = Nd;
+  app_n2n inc Nd = Ne;
+  app_n2n inc Ne = Nf;
+  app_n2n inc Nf = N0.
+
+# axiom ~ HAS_PROTO_n2n inc.
+
+data byte :=
+  Byte nib nib.
+
+val mapnibs : n2n -> byte -> byte.
+
+axiom
+  forall (f : n2n) (m : nib) (n : nib).
+    mapnibs f (Byte m n) = Byte (APP_n2n f m) (APP_n2n f n)
+    && IN_APP_n2n f m && IN_APP_n2n f n.
+
+val b : byte.
+
+goal mapnibs inc b = b.

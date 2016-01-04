@@ -1,0 +1,46 @@
+data nib :=
+  N0
+| N1
+| N2
+| N3
+| N4
+| N5
+| N6
+| N7
+| N8
+| N9
+| Na
+| Nb
+| Nc
+| Nd
+| Ne
+| Nf.
+
+rec inc : nib -> nib :=
+  inc N0 = N1;
+  inc N1 = N2;
+  inc N2 = N3;
+  inc N3 = N4;
+  inc N4 = N5;
+  inc N5 = N6;
+  inc N6 = N7;
+  inc N7 = N7; # wrong
+  inc N8 = N9;
+  inc N9 = Na;
+  inc Na = Nb;
+  inc Nb = Nc;
+  inc Nc = Nd;
+  inc Nd = Ne;
+  inc Ne = Nf;
+  inc Nf = N0.
+
+data byte :=
+  Byte nib nib.
+
+rec mapnibs : (nib -> nib) -> byte -> byte :=
+  forall (f : nib -> nib) (m : nib) (n : nib).
+    mapnibs f (Byte m n) = Byte (f m) (f n).
+
+val b : byte.
+
+goal mapnibs inc b = b.

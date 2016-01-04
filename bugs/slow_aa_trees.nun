@@ -28,11 +28,11 @@ rec leq : nat -> nat -> prop :=
 rec wfx : tree -> prop :=
   wfx X = true;
   forall (uu : nat) (k : nat) (t1 : tree) (u : tree). wfx (N uu k t1 u) = ((if t1 = X then (k = Suc zero) && ((u = X) || ((level u = Suc zero) && (left u = X) && (right u = X))) else wfx t1 && wfx u && (~ (u = X)) && leq (Suc (level t1)) k && leq (level u) k && leq (Suc (level (right u))) k)).
-rec insorl : tree -> nat -> tree :=
-  forall (x1 : nat). insorl X x1 = N x1 (Suc zero) X X;
-  forall (y : nat) (k : nat) (t1 : tree) (u : tree) (x1 : nat). insorl (N y k t1 u) x1 = N y k ((if leq (Suc x1) y then insorl t1 x1 else t1)) ((if leq (Suc y) x1 then insorl u x1 else u)).
+rec insort : tree -> nat -> tree :=
+  forall (x1 : nat). insort X x1 = N x1 (Suc zero) X X;
+  forall (y : nat) (k : nat) (t1 : tree) (u : tree) (x1 : nat). insort (N y k t1 u) x1 = N y k ((if leq (Suc x1) y then insort t1 x1 else t1)) ((if leq (Suc y) x1 then insort u x1 else u)).
 
 # axiom t = N (Suc zero) (Suc zero) X X.
 # axiom x = zero.
 
-goal ~ (wfx t => wfx (insorl t x)).
+goal ~ (wfx t => wfx (insort t x)).
