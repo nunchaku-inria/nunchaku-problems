@@ -24,26 +24,34 @@ val alpha_n2n : type.
 val gamma1_n2n : alpha_n2n -> n2n.
 val gamma2_n2n : alpha_n2n -> nib.
 
-rec HAS_PROTO_n2n : n2n -> prop :=
+val HAS_PROTO_n2n : n2n -> prop.
+
+axiom
   forall (h : n2n).
     HAS_PROTO_n2n h = (exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = proto_n2n h).
 
-rec IN_app_n2n : n2n -> nib -> prop :=
+val IN_app_n2n : n2n -> nib -> prop.
+
+axiom
   forall (h : n2n) (j : nib).
     IN_app_n2n h j = (exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = j).
 
-rec IN_APP_n2n : n2n -> nib -> prop :=
+val IN_APP_n2n : n2n -> nib -> prop.
+
+axiom
   forall (h : n2n) (j : nib).
     IN_APP_n2n h j = (exists (b : alpha_n2n). gamma1_n2n b = h && (gamma2_n2n b = j || gamma2_n2n b = proto_n2n h)).
 
-rec APP_n2n : n2n -> nib -> nib :=
+val APP_n2n : n2n -> nib -> nib.
+
+axiom
   forall (h : n2n) (j : nib).
 # BUG:    APP_n2n h j = app_n2n h (if exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = j then j else proto_n2n h).
     APP_n2n h j = app_n2n h (if IN_app_n2n h j then j else proto_n2n h).
 
 axiom forall (f : n2n) (g : n2n).
   f = g
-|| (exists (x : nib). IN_app_n2n f x && IN_app_n2n g x && ~ (app_n2n f x = app_n2n g x)).
+  || (exists (x : nib). IN_app_n2n f x && IN_app_n2n g x && ~ (app_n2n f x = app_n2n g x)).
 
 val inc : n2n.
 
@@ -70,8 +78,8 @@ axiom
       | Nf -> N0
       end.
 
-axiom ~ (HAS_PROTO_n2n inc)
- || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = inc && gamma2_n2n b = x).
+axiom ~ (HAS_PROTO_n2n inc).
+# || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = inc && gamma2_n2n b = x).
 
 val ink : n2n.
 
@@ -98,8 +106,8 @@ axiom
       | Nf -> N0
       end.
 
-axiom ~ (HAS_PROTO_n2n ink)
- || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = ink && gamma2_n2n b = x).
+axiom ~ (HAS_PROTO_n2n ink).
+# || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = ink && gamma2_n2n b = x).
 
 data byte :=
   Byte nib nib.
@@ -123,8 +131,29 @@ axiom
 
 val b : byte.
 
-#goal mapnibs inc b = b
-#  && (exists (z : alpha_mapnibs). gamma1_mapnibs z = inc && gamma2_mapnibs z = b).
+goal mapnibs ink b = b
+  && (exists (z : alpha_mapnibs). gamma1_mapnibs z = ink && gamma2_mapnibs z = b).
+
+#val wit : n2n.
+#
+# goal true
+
+#  && APP_n2n wit N0 = N1 && IN_APP_n2n wit N0
+#  && APP_n2n wit N1 = N2 && IN_APP_n2n wit N1
+#  && APP_n2n wit N2 = N3 && IN_APP_n2n wit N2
+#  && APP_n2n wit N3 = N4 && IN_APP_n2n wit N3
+#  && APP_n2n wit N4 = N5 && IN_APP_n2n wit N4
+#  && APP_n2n wit N5 = N6 && IN_APP_n2n wit N5
+#  && APP_n2n wit N6 = N7 && IN_APP_n2n wit N6
+#  && APP_n2n wit N7 = N8 && IN_APP_n2n wit N7
+#  && APP_n2n wit N8 = N9 && IN_APP_n2n wit N8
+#  && APP_n2n wit N9 = Na && IN_APP_n2n wit N9
+#  && APP_n2n wit Na = Nb && IN_APP_n2n wit Na
+#  && APP_n2n wit Nb = Nc && IN_APP_n2n wit Nb
+#  && APP_n2n wit Nc = Nd && IN_APP_n2n wit Nc
+#  && APP_n2n wit Nd = Ne && IN_APP_n2n wit Nd
+
+#  && ~ (wit = inc).
 
 #goal inc = ink
 #  && HAS_PROTO_n2n inc.

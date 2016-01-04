@@ -74,5 +74,11 @@ lemma "map_nibs ink b \<noteq> b"
 (* nitpick[verbose,overlord,dont_specialize] *)
 (* nitpick[overlord, verbose, dont_box byte, card nib = 16, dont_specialize] *)
 (* nitpick[overlord, verbose, dont_box, card nib = 16] *)
+oops
+
+lemma "inc \<noteq> ink"
+oops
+
+lemma
 
 end
