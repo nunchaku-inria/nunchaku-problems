@@ -38,13 +38,23 @@ fun inc :: "nib \<Rightarrow> nib" where
 | "inc Ne = Nf"
 | "inc Nf = N0"
 
+(*
 datatype byte =
   Byte nib nib
+*)
+
+type_synonym byte = "nib \<times> nib"
+
+abbreviation Byte where
+  "Byte \<equiv> Pair"
 
 fun map_nibs :: "(nib \<Rightarrow> nib) \<Rightarrow> byte \<Rightarrow> byte" where
   "map_nibs f (Byte m n) = Byte (f m) (f n)"
 
 lemma "map_nibs inc b \<noteq> b"
-nunchaku
+(* nunchaku *)
+(* nitpick[overlord, verbose, dont_box byte, card nib = 16, dont_specialize] *)
+(* nitpick[overlord, verbose, dont_box, card nib = 16] *)
+
 
 end

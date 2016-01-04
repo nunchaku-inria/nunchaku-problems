@@ -48,22 +48,27 @@ axiom forall (f : n2n) (g : n2n).
 val inc : n2n.
 
 axiom
-  app_n2n inc N0 = N1;
-  app_n2n inc N1 = N2;
-  app_n2n inc N2 = N3;
-  app_n2n inc N3 = N4;
-  app_n2n inc N4 = N5;
-  app_n2n inc N5 = N6;
-  app_n2n inc N6 = N7;
-  app_n2n inc N7 = N7; # here
-  app_n2n inc N8 = N9;
-  app_n2n inc N9 = Na;
-  app_n2n inc Na = Nb;
-  app_n2n inc Nb = Nc;
-  app_n2n inc Nc = Nd;
-  app_n2n inc Nd = Ne;
-  app_n2n inc Ne = Nf;
-  app_n2n inc Nf = N0.
+  forall (a : alpha_n2n).
+    gamma1_n2n a = inc =>
+    app_n2n inc (gamma2_n2n a) =
+      match (gamma2_n2n a) with
+      | N0 -> N1
+      | N1 -> N2
+      | N2 -> N3
+      | N3 -> N4
+      | N4 -> N5
+      | N5 -> N6
+      | N6 -> N7
+      | N7 -> N7 # here
+      | N8 -> N9
+      | N9 -> Na
+      | Na -> Nb
+      | Nb -> Nc
+      | Nc -> Nd
+      | Nd -> Ne
+      | Ne -> Nf
+      | Nf -> N0
+      end.
 
 axiom ~ (HAS_PROTO_n2n inc)
  || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = inc && gamma2_n2n b = x).
