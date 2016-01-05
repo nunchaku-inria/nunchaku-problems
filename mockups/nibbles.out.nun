@@ -24,27 +24,19 @@ val alpha_n2n : type.
 val gamma1_n2n : alpha_n2n -> n2n.
 val gamma2_n2n : alpha_n2n -> nib.
 
-val HAS_PROTO_n2n : n2n -> prop.
-
-axiom
+spec HAS_PROTO_n2n : n2n -> prop :=
   forall (h : n2n).
     HAS_PROTO_n2n h = (exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = proto_n2n h).
 
-val IN_app_n2n : n2n -> nib -> prop.
-
-axiom
+spec IN_app_n2n : n2n -> nib -> prop :=
   forall (h : n2n) (j : nib).
     IN_app_n2n h j = (exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = j).
 
-val IN_APP_n2n : n2n -> nib -> prop.
-
-axiom
+spec IN_APP_n2n : n2n -> nib -> prop :=
   forall (h : n2n) (j : nib).
     IN_APP_n2n h j = (exists (b : alpha_n2n). gamma1_n2n b = h && (gamma2_n2n b = j || gamma2_n2n b = proto_n2n h)).
 
-val APP_n2n : n2n -> nib -> nib.
-
-axiom
+spec APP_n2n : n2n -> nib -> nib :=
   forall (h : n2n) (j : nib).
 #    APP_n2n h j = app_n2n h (if exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = j then j else proto_n2n h).
     APP_n2n h j = app_n2n h (if IN_app_n2n h j then j else proto_n2n h).
@@ -53,9 +45,7 @@ axiom forall (f : n2n) (g : n2n).
   f = g
   || (exists (x : nib). IN_app_n2n f x && IN_app_n2n g x && ~ (app_n2n f x = app_n2n g x)).
 
-val inc : n2n.
-
-axiom
+spec inc : n2n :=
   forall (a : alpha_n2n).
     gamma1_n2n a = inc =>
     app_n2n inc (gamma2_n2n a) =
@@ -76,14 +66,11 @@ axiom
       | Nd -> Ne
       | Ne -> Nf
       | Nf -> N0
-      end.
+      end;
+  ~ (HAS_PROTO_n2n inc)
+  || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = inc && gamma2_n2n b = x).
 
-axiom ~ (HAS_PROTO_n2n inc)
- || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = inc && gamma2_n2n b = x).
-
-val ink : n2n.
-
-axiom
+spec ink : n2n :=
   forall (a : alpha_n2n).
     gamma1_n2n a = ink =>
     app_n2n ink (gamma2_n2n a) =
@@ -104,10 +91,9 @@ axiom
       | Nd -> Ne
       | Ne -> Nf
       | Nf -> N0
-      end.
-
-axiom ~ (HAS_PROTO_n2n ink)
- || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = ink && gamma2_n2n b = x).
+      end;
+  ~ (HAS_PROTO_n2n ink)
+  || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = ink && gamma2_n2n b = x).
 
 data byte :=
   Byte nib nib.
@@ -116,9 +102,7 @@ val alpha_mapnibs : type.
 val gamma1_mapnibs : alpha_mapnibs -> n2n.
 val gamma2_mapnibs : alpha_mapnibs -> byte.
 
-val mapnibs : n2n -> byte -> byte.
-
-axiom
+spec mapnibs : n2n -> byte -> byte :=
   forall (a : alpha_mapnibs).
     mapnibs (gamma1_mapnibs a) (gamma2_mapnibs a) =
     match gamma2_mapnibs a with
@@ -132,6 +116,7 @@ axiom
 val b : byte.
 
 goal mapnibs ink b = b
+  && ~ (mapnibs inc b = b)
   && (exists (z : alpha_mapnibs). gamma1_mapnibs z = ink && gamma2_mapnibs z = b).
 
 #axiom
