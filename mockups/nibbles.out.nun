@@ -46,8 +46,8 @@ val APP_n2n : n2n -> nib -> nib.
 
 axiom
   forall (h : n2n) (j : nib).
-    APP_n2n h j = app_n2n h (if exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = j then j else proto_n2n h).
-#    APP_n2n h j = app_n2n h (if IN_app_n2n h j then j else proto_n2n h).
+#    APP_n2n h j = app_n2n h (if exists (b : alpha_n2n). gamma1_n2n b = h && gamma2_n2n b = j then j else proto_n2n h).
+    APP_n2n h j = app_n2n h (if IN_app_n2n h j then j else proto_n2n h).
 
 axiom forall (f : n2n) (g : n2n).
   f = g
