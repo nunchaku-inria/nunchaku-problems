@@ -30,5 +30,5 @@ pred has_len
 
 goal even (s (s (s (s z))))
   && odd (s (s (s (s (s z)))))
-  && has_len (cons t (cons t nil)) (s (s (s z))).
+  && has_len (cons t (cons t nil)) (s (s z)).
 
