@@ -1,6 +1,6 @@
 
 # (co)inductive types with need for mutualization
-# EXPECT: SAT
+# EXPECT: SAT (but faster, right now it is quite slow, 17s)
 
 
 # prelude: nat
@@ -30,5 +30,5 @@ and size_list : list tree -> nat :=
 goal
   let t0 := node nil in
   let t := node (cons t0 (cons t0 nil)) in
-  let t2 := node (cons t nil) in
+  let t2 := node (cons t (cons t nil)) in
   exists n. size t2 = n.
