@@ -1,0 +1,7 @@
+# outcome: Symbol 'bot' not declared as a variable
+# expected: SAT
+
+rec bot : prop :=
+  bot = false.
+
+goal ~ bot.

@@ -70,6 +70,25 @@ spec inc : n2n :=
   ~ (HAS_PROTO_n2n inc)
   || (forall (x : nib). exists (b : alpha_n2n). gamma1_n2n b = inc && gamma2_n2n b = x).
 
+#   forall (a : alpha_n2n).
+#     gamma1_n2n a = ink =>
+#     ((gamma2_n2n a = N0 => app_n2n ink N0 = N1)
+#      && (gamma2_n2n a = N1 => app_n2n ink N1 = N2)
+#      && (gamma2_n2n a = N2 => app_n2n ink N2 = N3)
+#      && (gamma2_n2n a = N3 => app_n2n ink N3 = N4)
+#      && (gamma2_n2n a = N4 => app_n2n ink N4 = N5)
+#      && (gamma2_n2n a = N5 => app_n2n ink N5 = N6)
+#      && (gamma2_n2n a = N6 => app_n2n ink N6 = N7)
+#      && (gamma2_n2n a = N7 => app_n2n ink N7 = N7)
+#      && (gamma2_n2n a = N8 => app_n2n ink N8 = N9)
+#      && (gamma2_n2n a = N9 => app_n2n ink N9 = Na)
+#      && (gamma2_n2n a = Na => app_n2n ink Na = Nb)
+#      && (gamma2_n2n a = Nb => app_n2n ink Nb = Nc)
+#      && (gamma2_n2n a = Nc => app_n2n ink Nc = Nd)
+#      && (gamma2_n2n a = Nd => app_n2n ink Nd = Ne)
+#      && (gamma2_n2n a = Ne => app_n2n ink Ne = Nf)
+#      && (gamma2_n2n a = Nf => app_n2n ink Nf = N0));
+
 spec ink : n2n :=
   forall (a : alpha_n2n).
     gamma1_n2n a = ink =>
@@ -114,9 +133,10 @@ spec mapnibs : n2n -> byte -> byte :=
     end.
 
 val b : byte.
+val p : n2n -> prop.
 
 goal mapnibs ink b = b
-  && ~ (mapnibs inc b = b)
+  && p inc
   && (exists (z : alpha_mapnibs). gamma1_mapnibs z = ink && gamma2_mapnibs z = b).
 
 #axiom
