@@ -1,9 +1,9 @@
-; cvc4 --finite-model-find --lang smt --uf-ss-totality
+; cvc4 --finite-model-find --lang smt --uf-ss-totality uf_ss_totality.smt
 ; outcome: unsat
 ; expected: sat or unknown
 
-; The result is "sat" without "--uf-ss-totality" and "unsat" with it. This seems weird -- I would
-; not expect command-line options to be able to make a difference between "sat" and "unsat".
+; The result is "sat" without "--uf-ss-totality" and timeout with it. It's not
+; clear if this is the intended behavior.
 
 (set-option :produce-models true)
 (set-option :interactive-mode true)
