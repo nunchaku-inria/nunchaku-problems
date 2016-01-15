@@ -1,6 +1,6 @@
 ; cvc4 --finite-model-find --lang smt --uf-ss-totality uf_ss_totality.smt
-; outcome: unsat
-; expected: sat or unknown
+; outcome: timeout
+; expected: sat or timeout
 
 ; The result is "sat" without "--uf-ss-totality" and timeout with it. It's not
 ; clear if this is the intended behavior.
