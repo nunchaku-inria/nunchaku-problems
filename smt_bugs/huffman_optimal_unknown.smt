@@ -1,9 +1,9 @@
-; outcome: timeout
+; outcome: unknown (after two seconds)
 ; expected: sat
 
-; cvc4 --lang smt2 --finite-model-find --uf-ss-fair-monotone --fmf-fun
+; cvc4 --lang smt2 --finite-model-find --fmf-fun
 
-; Nitpick can do it in one second.
+; Why does CVC4 return unknown in FMF mode?
 
 (set-option :produce-models true)
 (set-option :interactive-mode true)
