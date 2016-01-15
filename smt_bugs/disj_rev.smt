@@ -4,7 +4,7 @@
 ; after one minute. Adding "--uf-ss-fair-monotone" doesn't help visibly. And
 ; removing a conjunct no longer helps.
 
-; cvc4 --finite-model-find --lang smt --uf-ss-fair-monotone  disj_rev.smt
+; cvc4 --finite-model-find --lang smt --uf-ss-fair-monotone disj_rev.smt
 
 ; Old "bug":
 
