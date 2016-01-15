@@ -1,7 +1,9 @@
-# outcome: timeout
-# expected: sat
+; outcome: timeout
+; expected: sat
 
-# Nitpick can do it in one second.
+; cvc4 --lang smt2 --finite-model-find --uf-ss-fair-monotone --fmf-fun
+
+; Nitpick can do it in one second.
 
 (set-option :produce-models true)
 (set-option :interactive-mode true)
