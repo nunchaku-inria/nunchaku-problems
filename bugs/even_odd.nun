@@ -1,0 +1,27 @@
+# outcome: sat with wrong model
+# expected: sat with right model
+
+# The wrong model is
+#
+# SAT: {
+#  val m := zero.
+#  val odd := fun v_0/83. if v_0/83 = zero then true  else ?__.
+#  val even := fun v_0/85. if v_0/85 = zero then true  else ?__.
+# }
+#
+# It is wrong because clearly, "odd zero" should be "false".
+
+data nat :=
+  zero
+| Suc nat.
+
+rec even : nat -> prop :=
+  even zero = true;
+  forall (n : nat). even (Suc n) = odd n
+and odd : nat -> prop :=
+  odd zero = false;
+  forall (n : nat). odd (Suc n) = even n.
+
+val m : nat.
+
+goal even m.

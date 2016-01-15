@@ -8,9 +8,10 @@
 (set-logic ALL_SUPPORTED)
 (declare-sort elem 0)
 (declare-datatypes () ((list (Nil) (Cons (hd elem) (tl list)))))
+(declare-fun unkf (list) elem)
 (define-fun-rec f ((x list)) elem
 ; This fails:
-  (ite (is-Nil x) (f x) (hd x))
+  (ite (is-Nil x) (unkf x) (hd x))
 ; This would work:
 ; (ite (is-Nil x) (f x) (f x))
 ; This would work too:
