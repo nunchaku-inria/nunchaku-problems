@@ -1,4 +1,9 @@
-; outcome: timeout
+; current outcome:
+;  CVC4 threw an "unexpected" exception.
+;  libc++abi.dylib: unexpected_handler unexpectedly returned
+;  Abort trap: 6
+;
+; old outcome: timeout
 ; expected: sat
 
 ; cvc4 --finite-model-find --lang smt coda.smt
