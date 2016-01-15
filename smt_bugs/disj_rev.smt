@@ -1,3 +1,13 @@
+; New "bug"
+
+; Things seem to have gotten worse for this problem. I now have to kill CVC4
+; after one minute. Adding "--uf-ss-fair-monotone" doesn't help visibly. And
+; removing a conjunct no longer helps.
+
+; cvc4 --finite-model-find --lang smt --uf-ss-fair-monotone  disj_rev.smt
+
+; Old "bug":
+
 ; This problem is very slow (22 s on JB's Mac). Removing any of the two disjuncts at the bottom of
 ; the file makes it very fast (< 1 s). A priori, an extra disjunct only makes the problem only
 ; easier. Also to note: The two disjuncts are fully independent -- they depend on different types
