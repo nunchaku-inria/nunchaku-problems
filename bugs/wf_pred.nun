@@ -2,7 +2,8 @@
 # outcome: sat
 
 # The encoding of inductive predicates is wrong. "p" and "q" should be
-# equal (they have the same specification).
+# equal (they have the same specification, and (co)inductive predicates are
+# fully specified as least resp. greatest fixpoints).
 
 data nat :=
   Zero
