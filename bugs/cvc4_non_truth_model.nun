@@ -1,8 +1,6 @@
 # outcome: expected decision tree for wfx+ to yield only true/false
 # expected: sat
 
-# This appears to be CVC4's fault.
-
 data nat :=
   zero
 | Suc nat.
