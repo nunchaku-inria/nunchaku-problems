@@ -14,18 +14,6 @@
    ((tree (Leaf (leafW nat) (label a)) 
        (InnerNode (innerW nat) (left tree) 
           (right tree)))))
-(define-fun-rec alphabet ((v_0 tree) (v_1 a)) Bool
-       (ite (is-Leaf v_0)
-         (= (label v_0) (label v_0))
-         (or (alphabet (left v_0) v_1) 
-          (alphabet (right v_0) v_1))))
-(define-fun-rec consistent ((v_0 tree)) Bool
-      (or (is-Leaf v_0)
-       (and (consistent (left v_0)) 
-        (consistent (right v_0)) 
-        (forall ((a1 a))
-           (or (not (alphabet (left v_0) a1)) 
-            (not (alphabet (right v_0) a1)))))))
 (declare-fun nun_sk_0 () tree)
 (declare-datatypes ()
    ((list (Nil ) (Cons (hd tree) (tl list)))))

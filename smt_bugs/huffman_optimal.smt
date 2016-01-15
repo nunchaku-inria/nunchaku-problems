@@ -79,5 +79,11 @@
          (weight (right v_0))) 
         (cost (right v_0)))))
 (assert
-  (not (lesseq (cost (huffman ts)) (cost nun_sk_0))))
+ (and (consistent nun_sk_0) 
+  (forall ((x a))
+     (and
+      (or (not (alphabet (huffman ts) x)) (alphabet nun_sk_0 x)) 
+      (or (not (alphabet nun_sk_0 x)) (alphabet (huffman ts) x)))) 
+  (forall ((x a)) (= (freq (huffman ts) x) (freq nun_sk_0 x))) 
+  (not (lesseq (cost (huffman ts)) (cost nun_sk_0)))))
 (check-sat)
