@@ -1,11 +1,11 @@
-# outcome: timeout
-# expected: unsat
+; outcome: timeout
+; expected: unsat
 
-# cvc4 --quant-ind --lang smt induct.smt
+; cvc4 --quant-ind --lang smt induct.smt
 
-# I was hoping that CVC4 would notice that it can do an induction on "t", even
-# though it is not bound by an "exists" in the conjecture. We prefer to
-# Skolemize on our side to get more informative models.
+; I was hoping that CVC4 would notice that it can do an induction on "t", even
+; though it is not bound by an "exists" in the conjecture. We prefer to
+; Skolemize on our side to get more informative models.
 
 (set-option :produce-models true)
 (set-option :interactive-mode true)
