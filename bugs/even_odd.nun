@@ -4,12 +4,11 @@
 # The wrong model is
 #
 # SAT: {
-#  val m := zero.
-#  val odd := fun v_0/83. if v_0/83 = zero then true  else ?__.
-#  val even := fun v_0/85. if v_0/85 = zero then true  else ?__.
-# }
+#   val m := Suc zero.
 #
-# It is wrong because clearly, "odd zero" should be "false".
+# }
+# It is doubly wrong: "even (Suc zero)" should be "false". And where are "even"
+# and "odd"?
 
 data nat :=
   zero
@@ -24,4 +23,4 @@ and odd : nat -> prop :=
 
 val m : nat.
 
-goal even m.
+goal even (Suc m).
