@@ -1,5 +1,5 @@
 # outcome: defined function insert is partially applied (2 arguments, expected 3)
-# expect: sat
+# expected: sat
 
 val a : type.
 
