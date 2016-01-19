@@ -27,7 +27,7 @@ data listab :=
 val undefined : listab.
 
 rec zip : lista -> listb -> listab :=
-  forall (xs : lista) (ys : listb). zip xs ys = (match xs with | Nila -> match ys with | Nilb -> Nilab | Consb z zs -> undefined end | Consa z zs -> match ys with | Nilb -> undefined | Consb z zs -> Consab (Pair z z) (zip zs zs) end end).
+  forall (xs : lista) (ys : listb). zip xs ys = (match xs with | Nila -> match ys with | Nilb -> Nilab | Consb z zs -> undefined end | Consa za zas -> match ys with | Nilb -> undefined | Consb zb zbs -> Consab (Pair za zb) (zip zas zbs) end end).
 
 val xs : lista.
 val ys : listb.
