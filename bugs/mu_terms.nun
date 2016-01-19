@@ -1,0 +1,24 @@
+# outcome:
+#   SAT: {
+#    type a := {a_0}.
+#    val _witness_of (exists (x:a). xs = (LCons x xs)) := a_0.
+#    val xs := LCons a_0 @uc_llist_0.
+# }
+# expected:
+#   SAT: {
+#    type a := {a_0}.
+#    val _witness_of (exists (x:a). xs = (LCons x xs)) := a_0.
+#    val xs := mu X. LCons a_0 X.
+# }
+
+# Cyclic terms should be displayed using the "mu" binder notation.
+
+val a : type.
+
+codata llist :=
+  LNil
+| LCons a llist.
+
+val xs : llist.
+
+goal exists x. xs = LCons x xs.
