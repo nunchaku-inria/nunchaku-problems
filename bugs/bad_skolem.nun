@@ -5,6 +5,9 @@
 # wrongly skolemizes the right-hand side of the "if and only if", even though
 # it is unpolarized.
 
+# In contrast, with "spec" instead of "rec", the "if and only if" is expanded.
+# 
+
 val a : type.
 
 data list :=
