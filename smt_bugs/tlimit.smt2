@@ -1,6 +1,6 @@
 ; "--tlimit" for 3 milliseconds or less appears to do nothing
 
-; cvc4 --finite-model-find --lang smt --tlimit=1 tlimit.smt
+; cvc4 --finite-model-find --lang smt --tlimit=1 tlimit.smt2
 
 (set-option :produce-models true)
 (set-option :interactive-mode true)
