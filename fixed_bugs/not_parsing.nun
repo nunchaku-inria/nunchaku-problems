@@ -9,4 +9,4 @@ val i : type.
 val p : i -> i -> prop.
 val x : i.
 
-val ~ p x x.
+goal ~ p x x.
