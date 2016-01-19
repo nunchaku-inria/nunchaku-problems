@@ -1,7 +1,7 @@
 ; outcome: timeout
 ; expected: sat
 
-; cvc4 --finite-model-find --lang smt coda.smt
+; cvc4 --finite-model-find --lang smt coda.smt2
 
 ; If you replace "declare-codatatypes" with "declare-datatypes", you then get
 ; "sat". However, marking something as a codatatype instead of a datatype only

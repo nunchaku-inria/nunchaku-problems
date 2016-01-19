@@ -1,7 +1,7 @@
 ; outcome: timeout
 ; expected: unsat
 
-; cvc4 --quant-ind --lang smt induct.smt
+; cvc4 --quant-ind --lang smt induct.smt2
 
 ; I was hoping that CVC4 would notice that it can do an induction on "t", even
 ; though it is not bound by an "exists" in the conjecture. We prefer to
