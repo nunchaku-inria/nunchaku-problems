@@ -12,4 +12,4 @@ and odd : nat -> prop :=
 
 val m : nat.
 
-goal even m.
+goal even m && ~ (m = zero).
