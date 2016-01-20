@@ -1,0 +1,38 @@
+# outcome: sat with wrong model
+# expected: sat with right model
+
+# Nunchaku prints the model
+#
+#  val alphabet :=
+#    fun v_0/103 v_1/104.
+#      if v_0/103 = Node zero (Leaf zero a_1) (Leaf zero a_1) && v_1/104 = a_1
+#      then false 
+#      else if v_0/103 = Leaf zero a_1 && v_1/104 = a_1
+#      then false 
+#      else ?__.
+#
+# However, in both cases, it should return true.
+
+val a : type.
+
+data nat :=
+  zero
+| Suc nat.
+
+data tree :=
+  Leaf nat a
+| Node nat tree tree.
+
+rec alphabet : tree -> a -> prop :=
+  forall (w : nat) (a2 : a) (b : a). alphabet (Leaf w a2) b = (a2 = b);
+  forall (w : nat) (t1 : tree) (t2 : tree) (a2 : a). alphabet (Node w t1 t2) a2 = (alphabet t1 a2 || alphabet t2 a2).
+
+rec setWeight : tree -> nat -> a -> tree :=
+  forall (wc : nat) (c : a) (wa1 : nat) (a2 : a). setWeight (Leaf wc c) wa1 a2 = (if c = a2 then Leaf wa1 a2 else Leaf wc c);
+  forall (w : nat) (t1 : tree) (t2 : tree) (wa1 : nat) (a2 : a). setWeight (Node w t1 t2) wa1 a2 = Node w (setWeight t1 wa1 a2) (setWeight t2 wa1 a2).
+
+val w : nat.
+val x : a.
+val y : a.
+
+goal ~ alphabet (Node w (Leaf w y) (Leaf w y)) x.
