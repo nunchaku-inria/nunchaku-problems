@@ -3,6 +3,8 @@
 
 ; cvc4 --finite-model-find unsound_model.smt2
 
+; AR's answer: Use --mbqi=none for now.
+
 (set-option :produce-models true)
 (set-option :interactive-mode true)
 (set-logic ALL_SUPPORTED)
