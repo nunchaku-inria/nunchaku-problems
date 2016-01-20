@@ -1,6 +1,6 @@
 
 # Test on data
-# expect: SAT
+# expect: unknown
 
 data pair a b := Pair a b.
 

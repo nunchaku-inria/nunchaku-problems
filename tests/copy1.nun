@@ -1,6 +1,6 @@
 
 # Test for copy
-# expect: SAT
+# expect: unknown
 
 data pair a b := Pair a b.
 
@@ -11,7 +11,7 @@ copy pair1 a := pair a a
 val iota : type.
 
 goal forall (p:pair1 iota).
-     exists (x:iota).
-     pair_of_pair1 p = Pair x x.
+     exists (x:iota) (y:iota).
+     pair_of_pair1 p = Pair x y.
 
 
