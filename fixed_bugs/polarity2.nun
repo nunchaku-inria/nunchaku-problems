@@ -1,9 +1,4 @@
-# outcome: sat
 # expected: unsat
-
-# Setting the weight of a Leaf (the first argument to Leaf) does not influence
-# the symbol (the second argument). Hence setWeight preserves the alphabet, and
-# the formula is unsat. There appears to be a bug with the polarity computation.
 
 val a : type.
 
@@ -27,4 +22,4 @@ val t : tree.
 val a1 : a.
 val wa : nat.
 
-goal alphabet t a1 && ~ (alphabet (setWeight t wa a1) a1).
+goal alphabet t a1 && ~ alphabet (setWeight t wa a1) a1.
