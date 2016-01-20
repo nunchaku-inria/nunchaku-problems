@@ -4,31 +4,20 @@
 # Nunchaku prints the model
 #
 #  val alphabet :=
-#    fun v_0/103 v_1/104.
-#      if v_0/103 = Leaf zero a_0 && v_1/104 = a_0 then false  else ?__.
+#    fun v_0/70 v_1/71.
+#      if v_0/70 = Leaf a_0 && v_1/71 = a_0 then false  else ?__.
 #
-# However, in both cases, it should return true.
+# However, "false" should be "true".
 
 val a : type.
 
-data nat :=
-  zero
-| Suc nat.
-
 data tree :=
-  Leaf nat a
-| Node nat tree tree.
+  Leaf a.
 
 rec alphabet : tree -> a -> prop :=
-  forall (w : nat) (a2 : a) (b : a). alphabet (Leaf w a2) b = (a2 = b);
-  forall (w : nat) (t1 : tree) (t2 : tree) (a2 : a). alphabet (Node w t1 t2) a2 = (alphabet t1 a2 || alphabet t2 a2).
+  forall (x : a) (y : a). alphabet (Leaf x) y = (x = y).
 
-rec setWeight : tree -> nat -> a -> tree :=
-  forall (wc : nat) (c : a) (wa1 : nat) (a2 : a). setWeight (Leaf wc c) wa1 a2 = (if c = a2 then Leaf wa1 a2 else Leaf wc c);
-  forall (w : nat) (t1 : tree) (t2 : tree) (wa1 : nat) (a2 : a). setWeight (Node w t1 t2) wa1 a2 = Node w (setWeight t1 wa1 a2) (setWeight t2 wa1 a2).
-
-val w : nat.
 val x : a.
 val y : a.
 
-goal ~ alphabet (Leaf w y) x.
+goal ~ alphabet (Leaf y) x.
