@@ -5,11 +5,7 @@
 #
 #  val alphabet :=
 #    fun v_0/103 v_1/104.
-#      if v_0/103 = Node zero (Leaf zero a_1) (Leaf zero a_1) && v_1/104 = a_1
-#      then false 
-#      else if v_0/103 = Leaf zero a_1 && v_1/104 = a_1
-#      then false 
-#      else ?__.
+#      if v_0/103 = Leaf zero a_0 && v_1/104 = a_0 then false  else ?__.
 #
 # However, in both cases, it should return true.
 
@@ -35,4 +31,4 @@ val w : nat.
 val x : a.
 val y : a.
 
-goal ~ alphabet (Node w (Leaf w y) (Leaf w y)) x.
+goal ~ alphabet (Leaf w y) x.
