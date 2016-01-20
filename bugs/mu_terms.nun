@@ -4,7 +4,7 @@
 #    val _witness_of (exists (x:a). xs = (LCons x xs)) := a_0.
 #    val xs := LCons a_0 @uc_llist_0.
 # }
-# expected:
+# expected: sat
 #   SAT: {
 #    type a := {a_0}.
 #    val _witness_of (exists (x:a). xs = (LCons x xs)) := a_0.

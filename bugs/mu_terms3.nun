@@ -1,5 +1,5 @@
 # outcome: a model with @uc_tree_... constants
-# expected: a model with the proper mu terms
+# expected: SAT (a model with the proper mu terms)
 #
 
 data a := Zero | One.

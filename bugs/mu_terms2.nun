@@ -6,7 +6,7 @@
 #    val x_0101_etc := LCons Zero (LCons One @uc_llist_1).
 #    val x_1010_etc := LCons One (LCons Zero @uc_llist_1).
 #  }
-# expected:
+# expected: sat
 #  SAT: {
 #    val x_1100100_etc := LCons One (mu X. LCons One (LCons Zero (LCons Zero X))).
 #    val x_0100100_etc := mu X. LCons Zero (LCons One (LCons Zero X).
