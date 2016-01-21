@@ -11,9 +11,6 @@ data nat :=
 spec one : nat :=
   one = Suc Zero.
 
-spec succ : nat -> nat :=
-  forall n. succ n = Suc n.
-
 rec plus : nat -> nat -> nat :=
   forall (n : nat). plus Zero n = n;
   forall (m : nat) (n : nat). plus (Suc m) n = Suc (plus m n).
