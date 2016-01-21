@@ -1,8 +1,7 @@
 # expected: unknown (unsat)
 # outcome: sat
 
-# Something is fishy with CVC4's handling of infinite quantifiers.
-# Cf. JB's email from 21 January 2016.
+# See "wf_pred0.nun" first.
 
 data nat :=
   Zero
