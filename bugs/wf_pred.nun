@@ -11,12 +11,11 @@ data nat :=
 spec one : nat :=
   one = Suc Zero.
 
-rec plus : nat -> nat -> nat :=
-  forall (n : nat). plus Zero n = n;
-  forall (m : nat) (n : nat). plus (Suc m) n = Suc (plus m n).
+rec add2 : nat -> nat :=
+  forall (n : nat). add2 n = Suc (Suc n).
 
 pred [wf] p : nat -> prop :=
-  forall (n : nat). p n => p (plus n (Suc (Suc Zero))).
+  forall (n : nat). p n => p (add2 n).
 
 val n : nat.
 
