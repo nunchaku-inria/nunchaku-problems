@@ -1,4 +1,4 @@
-# expected: unsat
+# expected: unknown (unsat)
 # outcome: sat
 
 # The encoding of inductive predicates is wrong. "p" and "q" should be
