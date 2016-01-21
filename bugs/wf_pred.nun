@@ -8,15 +8,12 @@ data nat :=
   Zero
 | Suc nat.
 
-spec one : nat :=
-  one = Suc Zero.
-
 rec add2 : nat -> nat :=
   forall (n : nat). add2 n = Suc (Suc n).
 
-pred [wf] p : nat -> prop :=
-  forall (n : nat). p n => p (add2 n).
+pred [wf] always_false : nat -> prop :=
+  forall (n : nat). always_false n => always_false (add2 n).
 
 val n : nat.
 
-goal p Zero.
+goal always_false Zero.
