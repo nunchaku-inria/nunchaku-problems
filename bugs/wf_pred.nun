@@ -1,9 +1,8 @@
 # expected: unknown (unsat)
 # outcome: sat
 
-# The encoding of inductive predicates is wrong. "p" and "q" should be
-# equal (they have the same specification, and (co)inductive predicates are
-# fully specified as least resp. greatest fixpoints).
+# Something is fishy with CVC4's handling of infinite quantifiers.
+# Cf. JB's email from 21 January 2016.
 
 data nat :=
   Zero
@@ -12,27 +11,16 @@ data nat :=
 spec one : nat :=
   one = Suc Zero.
 
+spec succ : nat -> nat :=
+  forall n. succ n = Suc n.
+
 rec plus : nat -> nat -> nat :=
   forall (n : nat). plus Zero n = n;
   forall (m : nat) (n : nat). plus (Suc m) n = Suc (plus m n).
 
-data num :=
-  One
-| Bit0 num
-| Bit1 num.
-
-rec numeral : num -> nat :=
-  numeral One = one;
-  forall (n : num). numeral (Bit0 n) = plus (numeral n) (numeral n);
-  forall (n : num). numeral (Bit1 n) = plus (plus (numeral n) (numeral n)) one.
-
 pred [wf] p : nat -> prop :=
-  p Zero;
-  forall (n : nat). p n => p (plus n (numeral (Bit0 One))).
-pred [wf] q : nat -> prop :=
-  q Zero;
-  forall (n : nat). q n => q (plus n (numeral (Bit0 One))).
+  forall (n : nat). p n => p (plus n (Suc (Suc Zero))).
 
 val n : nat.
 
-goal ~ (p n = q n).
+goal p Zero.
