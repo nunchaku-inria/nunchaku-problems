@@ -1,5 +1,4 @@
-# outcome: "undefined ID: depth"
-# expected: sat
+# expected: unknown
 
 val a : type.
 
