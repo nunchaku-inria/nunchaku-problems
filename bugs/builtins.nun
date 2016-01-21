@@ -8,5 +8,6 @@
 val t : type.
 val a : t.
 val concat : t -> t.
+val const : t -> t.
 
-goal concat a = a.
+goal concat a = a && const a = a.
