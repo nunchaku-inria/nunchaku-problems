@@ -44,7 +44,7 @@ data state :=
 val s : state.
 val isin : state -> room -> guest -> prop.
 
-rec next : state -> state -> prop :=
+spec next : state -> state -> prop :=
   forall (s1 : state) (sH : state). next s1 sH = (((s1 = S1) && (sH = S2)) || ((s1 = S2) && (sH = S3)) || ((s1 = S3) && (sH = S4)) || ((s1 = S4) && (sH = S5)) || ((s1 = S5) && (sH = S6))).
 
 val owns : state -> room -> option.
