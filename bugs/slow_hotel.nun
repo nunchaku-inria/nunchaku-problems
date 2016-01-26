@@ -1,0 +1,56 @@
+data key :=
+  K1
+| K2
+| K3
+| K4.
+
+data card :=
+  C1
+| C2
+| C3
+| C4
+| C5.
+
+val fst : card -> key.
+val snd : card -> key.
+
+data room :=
+  R1.
+
+data guest :=
+  G1
+| G2.
+
+data option :=
+  None
+| Some guest.
+
+data state :=
+  S1
+| S2
+| S3
+| S4
+| S5
+| S6.
+
+val isin : state -> room -> guest -> prop.
+val owns : state -> room -> option.
+val safe : state -> room -> prop.
+val cards : state -> guest -> card -> prop.
+val currk : state -> room -> key.
+val roomk : state -> room -> key.
+val issued : state -> key -> prop.
+
+val buggy : prop.
+
+pred reach : state -> prop :=
+  forall (s1 : state). ((forall (r1 : room). owns s1 r1 = None) && (forall (r1 : room) (rH : room). (currk s1 r1 = currk s1 rH) => (r1 = rH)) && (forall (k : key). issued s1 k = (exists (r1 : room). currk s1 r1 = k)) && (forall (g1 : guest) (c : card). ~ (cards s1 g1 c)) && (forall (r1 : room). roomk s1 r1 = currk s1 r1) && (forall (r1 : room) (g1 : guest). ~ (isin s1 r1 g1)) && (forall (r1 : room). safe s1 r1)) => reach s1;
+  forall (s1 : state) (K : key) (C : card) (R : room) (sH : state) (G : guest). (reach s1 && (~ (issued s1 K)) && (fst C = currk s1 R) && (snd C = K) && (forall (r1 : room). owns sH r1 = ((if r1 = R then Some G else owns s1 r1))) && (forall (r1 : room). currk sH r1 = ((if r1 = R then K else currk s1 r1))) && (forall (k : key). issued sH k = ((k = K) || issued s1 k)) && (forall (g1 : guest) (c : card). cards sH g1 c = (((g1 = G) && (c = C)) || cards s1 g1 c)) && (forall (r1 : room). roomk sH r1 = roomk s1 r1) && (forall (r1 : room) (g1 : guest). isin sH r1 g1 = isin s1 r1 g1) && (forall (r1 : room). safe sH r1 = ((~ (r1 = R)) && safe s1 r1))) => reach sH;
+  forall (s1 : state) (G : guest) (C : card) (K : key) (KH : key) (r1 : room) (sH : state) (R : room). (reach s1 && cards s1 G C && (fst C = K) && (snd C = KH) && ((roomk s1 r1 = K) || (roomk s1 r1 = KH)) && (forall (ra : room). owns sH ra = owns s1 ra) && (forall (ra : room). currk sH ra = currk s1 ra) && (forall (k : key). issued sH k = issued s1 k) && (forall (g1 : guest) (c : card). cards sH g1 c = cards s1 g1 c) && (forall (ra : room). roomk sH ra = ((if ra = R then KH else roomk s1 ra))) && (forall (ra : room) (g1 : guest). isin sH ra g1 = (((ra = R) && (g1 = G)) || isin s1 ra g1)) && (forall (ra : room). safe sH ra = ((if ra = R then ((owns s1 R = Some G) && (forall (rb : room) (g1 : guest). ~ (isin s1 rb g1)) && (buggy || (KH = currk s1 R))) || safe s1 R else safe s1 ra)))) => reach sH;
+  forall (s1 : state) (R : room) (G : guest) (sH : state). (reach s1 && isin s1 R G && (forall (r1 : room). owns sH r1 = owns s1 r1) && (forall (r1 : room). currk sH r1 = currk s1 r1) && (forall (k : key). issued sH k = issued s1 k) && (forall (g1 : guest) (c : card). cards sH g1 c = cards s1 g1 c) && (forall (r1 : room). roomk sH r1 = roomk s1 r1) && (forall (r1 : room) (g1 : guest). isin sH r1 g1 = (((~ (r1 = R)) || (~ (g1 = G))) && isin s1 r1 g1)) && (forall (r1 : room). safe sH r1 = safe s1 r1)) => reach sH.
+
+val s : state.
+val r : room.
+val g : guest.
+
+goal ~ (((~ buggy) && reach s && safe s r && isin s r g) => (owns s r = Some g)).
