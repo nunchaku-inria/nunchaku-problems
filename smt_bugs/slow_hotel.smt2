@@ -1,3 +1,8 @@
+; expected: sat
+; outcome: timeout
+
+; cvc4 --finite-model-find slow_hotel.smt2
+
 (set-option :produce-models true)
 (set-option :interactive-mode true)
 (set-logic ALL_SUPPORTED)
