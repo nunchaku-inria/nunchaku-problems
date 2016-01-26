@@ -15,4 +15,11 @@ fixed_bugs:
 tests:
 	@frogtest run -j $J $@
 
-.PHONY: update fixed_bugs bugs tests
+bisect-clean:
+	rm -f bisect*.out
+	rm -rf bisect.html
+
+bisect:
+	./bisect_run.sh
+
+.PHONY: update fixed_bugs bugs tests bisect bisect-clean
