@@ -22,7 +22,7 @@
 (declare-fun g () guest)
 (declare-datatypes () ((_nat (_succ (_select__succ__0 _nat)) (_zero))))
 (declare-fun decr_reach () _nat)
-(declare-sort G_reach_pos 0)
+(declare-datatypes () ((G_reach_pos (GRP6) (GRP5) (GRP4) (GRP3) (GRP2) (GRP1))))
 (declare-fun __nun_card_witness_0 () G_reach_pos)
 (declare-fun reach+ (_nat state) Bool)
 (declare-fun proj_G_reach_pos_0 (G_reach_pos) _nat)
