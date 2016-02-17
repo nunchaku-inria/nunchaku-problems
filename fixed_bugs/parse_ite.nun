@@ -1,5 +1,5 @@
 # outcome: "CVC4 error"
-# expected: unsat
+# expected: sat
 
 # Two issues:
 #
@@ -13,4 +13,4 @@
 spec my_not : prop -> prop :=
   forall x. ~ (my_not x = x).
 
-goal my_not false.
+goal my_not false && ~ (my_not true).
