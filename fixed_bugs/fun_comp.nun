@@ -1,5 +1,5 @@
 # outcome: "CVC4 threw an "unexpected" exception. libc++abi.dylib: unexpected_handler unexpectedly returned"
-# Expect: error
+# Expect: sat (using extensionality)
 
 val a : type.
 val b : type.
