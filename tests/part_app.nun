@@ -1,19 +1,19 @@
 
 # test partial application and HO
-# expect: unknown
+# expect: sat
 
 val a : type.
 val b : type.
 val c : type.
 
-val comp : a -> (a -> b) -> (b -> c) -> c.
+val comp : (a -> b) -> (b -> c) -> a -> c.
 
-axiom forall x f g. comp x f g = g (f x).
+axiom forall x f g. comp f g x = g (f x).
 
 # so non-meaningful!
 val pseudo_pred : pi a. a -> prop.
 
 axiom pseudo_pred comp.
-axiom forall x f. pseudo_pred (comp x f).
+axiom forall f g. pseudo_pred (comp f g).
 
 
