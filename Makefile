@@ -3,8 +3,8 @@ all: update fixed_bugs tests bugs
 
 update:
 	@killall nunchaku || true
-	@yes | opam install nunchaku
-	@yes | opam upgrade nunchaku 
+	@opam install nunchaku --yes
+	@opam upgrade nunchaku --yes
 
 J=1
 
