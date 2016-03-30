@@ -1,5 +1,5 @@
 # outcome: "undefined ID: split"
-# expected: not first-order (eventually: sat)
+# expected: SAT
 
 val a : type.
 
