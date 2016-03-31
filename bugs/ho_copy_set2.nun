@@ -10,7 +10,7 @@ val d : a.
 
 copy set := a -> prop
   abstract Collect
-  concretize rmember.
+  concrete rmember.
 
 rec insert : a -> set -> set :=
   forall (a2 : a) (B : set). insert a2 B = Collect (fun (x : a). (x = a2) || rmember B x).

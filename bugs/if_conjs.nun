@@ -1,3 +1,4 @@
+# expect: SAT
 # outcome: a model with lots of unsatisfiable conditions and lots of 'if then true else false ...'
 #   val P :=
 #     fun (v_0/58 : a) (v_1/59 : a).

@@ -1,5 +1,5 @@
 # outcome: model with "if ... then b_1 else b_1" and if ... then b_0 else b_0"
-# expected: model without trivial ifs (irrespective of whatever junk you get from backend)
+# expected: SAT model without trivial ifs (irrespective of whatever junk you get from backend)
 
 val a : type.
 val b : type.

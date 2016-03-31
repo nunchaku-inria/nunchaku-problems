@@ -1,5 +1,5 @@
 # outcome: a model with "_witness_of (forall x/45:a. p x/34)" (notice /45 vs. /34)
-# expected: a model with the same name for both x's
+# expected: SAT a model with the same name for both x's
 
 val a : type.
 val p : a -> prop.

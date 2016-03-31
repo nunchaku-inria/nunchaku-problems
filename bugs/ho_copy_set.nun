@@ -7,7 +7,7 @@ val x : a.
 
 copy set := a -> prop
   abstract Collect
-  concretize rmember.
+  concrete rmember.
 
 val A : set.
 
