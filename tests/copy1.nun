@@ -6,7 +6,7 @@ data pair a b := Pair a b.
 
 copy pair1 a := pair a a
   abstract pair1_of_pair
-  concretize pair_of_pair1.
+  concrete pair_of_pair1.
 
 val iota : type.
 
