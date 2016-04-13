@@ -1,6 +1,6 @@
 
 # Test for copy
-# expect: unknown
+# expect: sat
 
 data pair a b := Pair a b.
 
