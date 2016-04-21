@@ -1,4 +1,8 @@
-# expected: unknown (unsat)
+
+
+# error because not well founded
+
+# expected: error
 # outcome: sat
 
 # See "wf_pred0.nun" first.

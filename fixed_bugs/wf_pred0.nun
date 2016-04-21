@@ -1,4 +1,6 @@
-# expected: unsat
+
+# error because well founded
+# expected: error
 # outcome: sat
 
 # A variant of "wf_pred.nun", with finite types.
