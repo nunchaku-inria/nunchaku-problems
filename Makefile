@@ -1,4 +1,10 @@
 
+FROGTEST_OPTS=
+
+ifeq ($(NO_CACHING),1)
+  FROGTEST_OPTS += --no-caching
+endif
+
 all: update fixed_bugs tests bugs
 
 update:
@@ -9,11 +15,11 @@ update:
 J=1
 
 bugs:
-	@frogtest run -j $J $@
+	@frogtest run $(FROGTEST_OPTS) -j $J $@
 fixed_bugs:
-	@frogtest run -j $J $@
+	@frogtest run $(FROGTEST_OPTS) -j $J $@
 tests:
-	@frogtest run -j $J $@
+	@frogtest run $(FROGTEST_OPTS) -j $J $@
 
 bisect-clean:
 	rm -f bisect*.out
