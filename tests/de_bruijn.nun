@@ -10,7 +10,7 @@ data term :=
   | App term term.
 
 rec bump : nat -> (nat -> term) -> nat -> term :=
-  forall n rho. bump n rho Z = Var n;
+  forall n rho. bump n rho Z = rho n;
   forall n rho m. bump n rho (S m) = bump (S n) rho m.
 
 rec subst : (nat -> term) -> term -> term :=
