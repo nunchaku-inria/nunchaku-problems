@@ -4,6 +4,9 @@ FROGTEST_OPTS=
 ifeq ($(NO_CACHING),1)
   FROGTEST_OPTS += --no-caching
 endif
+ifeq ($(WEB),1)
+  FROGTEST_OPTS += --web
+endif
 
 all: update fixed_bugs tests bugs
 
