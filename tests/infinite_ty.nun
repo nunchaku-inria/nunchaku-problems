@@ -6,11 +6,11 @@ val u : type [infinite].
 
 val alpha_u : type [approx_of u].
 
-val inject : alpha_u -> u.
+val upcast : alpha_u -> u [upcast].
 
 val f : u -> u.
 
-axiom forall x. f (inject x) = inject x.
+axiom forall x. f (upcast x) = upcast x.
 
 goal exists y. f y = y.
 
