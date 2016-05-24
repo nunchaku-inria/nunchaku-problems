@@ -1,7 +1,8 @@
+# outcome: sat
+# expect: sat
 
 # (co)inductive types with need for mutualization
-# EXPECT: SAT (but faster, right now it is quite slow, 17s)
-
+# This used to be quite slow but appears to have gotten faster (17 s -> 2.5 s?).
 
 # prelude: nat
 data nat :=

@@ -1,5 +1,6 @@
-# outcome: Not_found
+# outcome: unknown
 # expected: sat or unknown
+# status: sat
 
 data key_ :=
   K1_

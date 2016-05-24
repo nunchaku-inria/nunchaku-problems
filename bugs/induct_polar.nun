@@ -1,5 +1,8 @@
-# outcome: error in elimindpred: expect conclusion of clause to be of the form `p1 <arg1...arg1>`, but got `p1+ zero` (code 1)
+# outcome: timeout
 # expected: sat
+# status: sat
+
+### It looks like it is CVC4's fault here.
 
 data nat :=
   zero

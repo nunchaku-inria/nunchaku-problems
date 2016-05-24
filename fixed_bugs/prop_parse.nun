@@ -1,5 +1,5 @@
-# outcome: "Error in the interface to CVC4"
-# expected: sat with a model
+# outcome: sat
+# expected: sat
 
 # (1) Ideally, Nunchaku should recover from parsing error and put some special marker, e.g.,
 #     "?__unparsable" or whatever, so that we get a "sat"/"unsat" status and some information about

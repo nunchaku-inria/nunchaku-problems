@@ -1,5 +1,5 @@
-# outcome: a model with "undefined_114" in it
-# expected: SAT a model with "?__"
+# outcome: a model with "?__ (g v_1/109)" in it
+# expected: SAT a model with "?__ v_1/109" (no "g")
 
 val a : type.
 val b : type.

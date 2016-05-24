@@ -1,4 +1,4 @@
-# outcome: timeout
+# outcome: error "Error: in the interface to CVC4: no answer from the solver" (was: timeout)
 # expected: sat
 
 # Nitpick can do it very fast by keeping all cardinalities synchronized, and taking them to be all

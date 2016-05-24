@@ -1,4 +1,5 @@
-# expected: unsat
+# expected: unknown
+# status: unsat
 # outcome: sat
 
 # This problem is unsat because there always exists the identity function (among others)
