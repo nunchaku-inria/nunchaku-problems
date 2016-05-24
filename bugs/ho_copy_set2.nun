@@ -1,4 +1,4 @@
-# outcome: File "src/transformations/ElimCopy.ml", line 59, characters 52-58: Assertion failed
+# outcome: unknown
 # expected: sat
 
 val a : type.

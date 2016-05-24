@@ -1,4 +1,5 @@
-# expected: unsat
+# expected: unknown
+# status: unsat
 # outcome: sat
 
 # This example is dual to "ho_quant2.nun". Clearly, "gg" and "hh" are different functions, so
