@@ -1,0 +1,14 @@
+# outcome: sat
+# status: unsat
+
+# The two "goal"s below are equivalent, logcally, but Nunchaku wrongly returns "sat"
+# for the negated "exist". There's a duality between positive forall and negative
+# exist (and for negative forall and positive exist) that Nunchaku does not seem to
+# be honoring.
+
+val a : type.
+
+val y : a.
+
+goal ~ (exists (f : a -> a). f = (fun x. x)).
+# goal forall (f : a -> a). ~ (f = (fun x. x)).
