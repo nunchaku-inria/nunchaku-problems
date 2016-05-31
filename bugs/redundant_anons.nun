@@ -1,5 +1,8 @@
-# outcome: sat with "anon_fun"s that are used nowhere
+# outcome: sat with "anon_fun"s that are used nowhere in the model
 # expected: sat without these "anon_fun"s
+
+# Apparently they arose from lambda-lifting, but this seems quite gratuitous
+# because there's a beta-redex before lambda-lifting.
 
 val u : type.
 
