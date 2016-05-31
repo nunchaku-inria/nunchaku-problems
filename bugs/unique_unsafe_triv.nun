@@ -1,0 +1,29 @@
+# outcome: timeout
+# expected: sat
+
+# The "unique_unsafe" operator is applied to a function that is obviously (syntactically) true at
+# exactly one point. So effectively, "Mem = mem". Yet the problem times out with the current
+# definition, whereas the version without "unique_unsafe" is blindingly fast.
+#
+# In practice, I don't expect the "one point" optimization (as it is called) to be very useful
+# (although it is sometimes a bit useful and is implemented in Nitpick), but whatever we are doing
+# right now with "unique_safe" (and Co.) must be wrong. The lack of beta-reduction, noted in
+# "redundant_anons.nun", appears to be an issue here as well.
+
+val u : type.
+
+val mem : u -> u -> prop.
+
+rec Mem : u -> u -> prop :=
+  forall x y. Mem x y = unique_unsafe (fun P. P = mem x y).
+# Version without "unique_unsafe":
+#  Mem = mem.
+
+rec union : u -> u -> u :=
+  forall A B. union A B = unique_unsafe (fun C. forall x. Mem x C = (Mem x A || Mem x B)).
+
+val x : u.
+val y : u.
+val z : u.
+
+goal ~ (x = y) && ~ (y = z) && ~ (x = z) && x = union y z.
