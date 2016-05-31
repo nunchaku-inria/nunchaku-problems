@@ -1,5 +1,6 @@
-# outcome: "Error: env: invalid definition for `notsubg_spec_5`: already declared or defined"
-# expected: sat
+# outcome: unknown
+# expected: unknown
+# status: sat
 
 val c : type.
 

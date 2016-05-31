@@ -1,5 +1,5 @@
-# outcome: "Error: env: invalid definition for `recg_spec_7`: already declared or defined"
-# expected: unknown
+# outcome: timeout
+# expected: timeout
 # status: unsat
 
 val c : type.
