@@ -1,0 +1,18 @@
+# outcome: sat with "anon_fun"s that are used nowhere
+# expected: sat without these "anon_fun"s
+
+data u := Z | S u.
+
+val a : type.
+
+val g : a -> u.
+
+val mem : u -> u -> prop.
+
+rec Mem : u -> u -> prop :=
+  forall x y. Mem x y = unique_unsafe (fun P. P = mem x y && (exists a. g a = x) && (exists b. g b = y)).
+
+val v : u.
+val w : u.
+
+goal Mem v w.
