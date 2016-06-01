@@ -1,0 +1,11 @@
+# expected: sat
+# outcome: unknown
+
+# The SMT has a lot of encoded higher-order stuff in it. It shouldn't be.
+# Thanks to specialization, the encoded problem should be solidly first-order.
+
+val a : type.
+
+val P : a -> prop.
+
+goal ~ (P (choice P)).
