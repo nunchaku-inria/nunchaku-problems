@@ -1,5 +1,5 @@
 # outcome: sat
-# expect: sat
+# expected: sat
 
 # (co)inductive types with need for mutualization
 # This used to be quite slow but appears to have gotten faster (17 s -> 2.5 s?).

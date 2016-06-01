@@ -1,5 +1,5 @@
 # outcome: unknown
-# expect: sat
+# expected: sat
 
 # This is an easy formula on sets: "~ ({} = A - B)", which can be refuted
 # by taking B = {} and A anything else. There should not be any infinite
