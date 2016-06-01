@@ -1,0 +1,16 @@
+# outcome: sat with "if v_0/93 = fun x/43:nat. rmember P x/43 then" in the model
+# expected: sat with "if v_0/93 = (fun (x/43:nat). rmember P x/43) then" in the model
+
+# Please add *both* missing pair of parentheses, without which Nunchaku isn't even
+# able to parse its own output (modulo the /123 variable numbers, about which
+# I'm going to do something someday). The Isabelle frontend needs them too.
+
+val nat : type.
+
+copy set := nat -> prop
+  abstract Collect
+  concrete rmember.
+
+val P : set.
+
+goal ~ (rmember P (choice (fun (x : nat). rmember P x))).
