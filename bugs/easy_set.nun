@@ -1,0 +1,30 @@
+# outcome: unknown
+# expect: sat
+
+# This is an easy formula on sets: "~ ({} = A - B)", which can be refuted
+# by taking B = {} and A anything else. There should not be any infinite
+# quantifier left after the translation.
+
+val a : type.
+
+copy set := a -> prop
+  abstract Collect
+  concrete rmember.
+
+val A : set.
+val B : set.
+
+rec bot : prop :=
+  bot = false.
+rec bot1 : a -> prop :=
+  bot1 = (fun x. bot).
+rec bot2 : set :=
+  bot2 = Collect bot1.
+rec minus : prop -> prop -> prop :=
+  forall (A1 : prop) (B1 : prop). minus A1 B1 = (A1 && (~ B1)).
+rec minus1 : (a -> prop) -> (a -> prop) -> a -> prop :=
+  forall (A1 : a -> prop) (B1 : a -> prop). minus1 A1 B1 = (fun x. minus (A1 x) (B1 x)).
+rec minus2 : set -> set -> set :=
+  forall (A1 : set) (B1 : set). minus2 A1 B1 = Collect (minus1 (fun (x : a). rmember A1 x) (fun (x : a). rmember B1 x)).
+
+goal ~ (bot2 = minus2 A B).
