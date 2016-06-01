@@ -1,11 +1,10 @@
-# expected: sat
 # outcome: unknown
+# status: sat
 
-# The SMT has a lot of encoded higher-order stuff in it. It shouldn't be.
-# Thanks to specialization, the encoded problem should be solidly first-order.
+# This will work once we have prototypes.
 
 val a : type.
 
 val P : a -> prop.
 
-goal ~ (P (choice P)).
+goal ~ P (choice P).
