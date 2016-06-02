@@ -1,5 +1,5 @@
 # outcome: unknown
-# status: sat
+# expect: sat
 
 # This will work once we have prototypes.
 

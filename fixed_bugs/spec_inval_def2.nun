@@ -1,5 +1,5 @@
 # outcome: timeout
-# expected: timeout
+# expected: unsat
 # status: unsat
 
 val c : type.

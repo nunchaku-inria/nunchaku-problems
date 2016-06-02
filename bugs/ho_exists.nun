@@ -1,5 +1,5 @@
 # outcome: sat
-# status: unsat
+# expected: unsat
 
 # The two "goal"s below are equivalent, logcally, but Nunchaku wrongly returns "sat"
 # for the negated "exist". There's a duality between positive forall and negative
