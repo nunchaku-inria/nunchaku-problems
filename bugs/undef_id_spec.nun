@@ -1,3 +1,9 @@
+# outcome: "Error: env: undefined ID `foldrt_spec_12`"
+# expected: unknown
+# status: unsat
+
+# It might be related to specialization.
+
 val at : type.
 
 rec idt : at -> at :=
