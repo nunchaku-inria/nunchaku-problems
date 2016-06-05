@@ -9,3 +9,6 @@
 data nat = Z | Suc nat.
 
 goal x asserting ~ (x = Z).
+# or:
+# goal (if x = Z then unreachable else x).
+# goal (if x = Z then @unreachable nat else x).
