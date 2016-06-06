@@ -6,9 +6,11 @@
 #   (t asserting p) = (if p then t else unreachable)
 # where T is the type of t.
 
-data nat = Z | Suc nat.
+data nat := Z | Suc nat.
 
-goal x asserting ~ (x = Z).
+val p : nat -> prop.
+
+goal exists x. p x asserting ~ (x = Z).
 # or:
 # goal (if x = Z then unreachable else x).
 # goal (if x = Z then @unreachable nat else x).
