@@ -1,5 +1,7 @@
+# expected: SAT 
+
 # old outcome: model with "val a_0 := a_1" and "val a_1 := a_0"
-# expected: SAT a different syntax for atoms and other identifiers
+# need a different syntax for atoms and other identifiers
 
 val a : type.
 val a_0 : a.

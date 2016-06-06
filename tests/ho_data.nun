@@ -1,6 +1,6 @@
 
 # test a `data` containing functions
-# expect: unknown
+# expect: sat
 
 data fun_comp a :=
   | ID
