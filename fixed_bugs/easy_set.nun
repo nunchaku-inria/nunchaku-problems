@@ -1,14 +1,5 @@
-# outcome: unknown
-# expected: sat
 
-# This is an easy formula on sets: "~ ({} = A - B)", which can be refuted
-# by taking B = {} and A anything else. There should not be any infinite
-# quantifier left after the translation.
-#
-# If I unfold the definition of "minus_prop" in "minus", then things work.
-# I'm not sure where the precision is lost, but unfolding will be necessary
-# as one of our main strategies against higher-order; yet we should try to
-# understand what happens here.
+# expected: sat
 
 val a : type.
 
