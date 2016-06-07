@@ -1,6 +1,6 @@
-# outcome: a model with @uc_tree_... constants
 # expected: SAT (a model with the proper mu terms)
-#
+
+# old outcome: a model with @uc_tree_... constants
 
 data a := Zero | One.
 

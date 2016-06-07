@@ -1,0 +1,14 @@
+
+# expected: sat
+
+# Cyclic terms should be displayed using the "mu" binder notation.
+
+val a : type.
+
+codata llist :=
+  LNil
+| LCons a llist.
+
+val xs : llist.
+
+goal exists x. xs = LCons x xs.
