@@ -1,5 +1,5 @@
-# outcome: sat with repetitive mu terms
-# expected: sat with simpler mu terms
+
+# expected: sat
 
 # old outcome: a model with @uc_tree_... constants
 

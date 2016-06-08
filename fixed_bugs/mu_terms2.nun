@@ -1,7 +1,5 @@
-# outcome: sat with repeated cycle
-# expected: sat without repeated cycle
 
-# was originally about parsing of mu terms (i.e. cyclic codata)
+# expected: sat
 
 data a := Zero | One.
 
