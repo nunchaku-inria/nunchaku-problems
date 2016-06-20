@@ -18,14 +18,10 @@ update:
 J=1
 
 bugs:
-	@frogtest run $(FROGTEST_OPTS) -j $J $@
-fixed_bugs:
-	@frogtest run $(FROGTEST_OPTS) -j $J $@
-tests:
-	@frogtest run $(FROGTEST_OPTS) -j $J $@
+	@frogtest run $(FROGTEST_OPTS) --junit bugs.xml -j $J $@
 
 should_pass:
-	@frogtest run $(FROGTEST_OPTS) --junit junit.xml -j $J
+	@frogtest run $(FROGTEST_OPTS) --junit should_pass.xml -j $J
 
 bisect-clean:
 	rm -f bisect*.out
@@ -34,4 +30,4 @@ bisect-clean:
 bisect:
 	./bisect_run.sh
 
-.PHONY: update fixed_bugs bugs tests bisect bisect-clean
+.PHONY: update should_pass bugs bisect bisect-clean
