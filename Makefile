@@ -8,7 +8,7 @@ ifeq ($(WEB),1)
   FROGTEST_OPTS += --web
 endif
 
-all: update fixed_bugs tests bugs
+all: update should_pass bugs
 
 update:
 	@killall nunchaku || true
@@ -25,7 +25,7 @@ tests:
 	@frogtest run $(FROGTEST_OPTS) -j $J $@
 
 should_pass:
-	@frogtest run $(FROGTEST_OPTS) -j $J
+	@frogtest run $(FROGTEST_OPTS) --junit junit.xml -j $J
 
 bisect-clean:
 	rm -f bisect*.out
