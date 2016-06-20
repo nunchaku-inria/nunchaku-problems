@@ -1,8 +1,4 @@
 
-timeout=5
-prover = "nunchaku"
-problems = ".*.nun"
-
 [nunchaku]
 
 cmd = "nunchaku --checks -s cvc4 -nc --timeout $timeout $file"
@@ -10,4 +6,11 @@ unsat = "UNSAT"
 sat = "SAT:"
 unknown = "TIMEOUT|UNKNOWN"
 timeout = "TIMEOUT"
+
+[test]
+
+timeout=5
+problems = ".*.nun"
+provers = [ "nunchaku" ]
+dir = [ "fixed_bugs", "tests" ]
 
