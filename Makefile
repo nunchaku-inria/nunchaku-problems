@@ -1,5 +1,5 @@
 
-FROGTEST_OPTS=
+FROGTEST_OPTS= -c test.toml
 
 ifeq ($(NO_CACHING),1)
   FROGTEST_OPTS += --no-caching
@@ -23,6 +23,9 @@ fixed_bugs:
 	@frogtest run $(FROGTEST_OPTS) -j $J $@
 tests:
 	@frogtest run $(FROGTEST_OPTS) -j $J $@
+
+should_pass:
+	@frogtest run $(FROGTEST_OPTS) -j $J
 
 bisect-clean:
 	rm -f bisect*.out
