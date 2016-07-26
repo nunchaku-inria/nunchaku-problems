@@ -10,7 +10,7 @@ timeout = "TIMEOUT"
 [test]
 
 memory = 4000
-timeout=5
+timeout=10
 problems = ".*.nun"
 provers = [ "nunchaku-paradox" ]
 dir = [ "fixed_bugs", "tests" ]
