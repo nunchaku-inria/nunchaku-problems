@@ -1,5 +1,6 @@
-# outcome: TIMEOUT
-# expected: SAT faster, e.g. 1 s (cf. Nitpick)
+# expected: SAT
+
+# old outcome: TIMEOUT
 
 val a : type.
 

@@ -1,6 +1,6 @@
-# outcome: sat
 # expected: unsat
 
+# old outcome: sat
 # The monomorphization phase appears to kill "asserting false".
 
 val a : type.

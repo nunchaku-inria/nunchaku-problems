@@ -1,6 +1,6 @@
-# outcome: sat with "$to_a_a_0" in the model
-# expected: sat without such low-level construct
+# expected: sat
 
+# old outcome: sat with "$to_a_a_0" in the model
 # "to_a_a" is not the name of a type in the input problem, so "$to_a_a_0"
 # is not a legal name for an atom in the output. Instead, an anonymous
 # function should be shown, reconstructed from the function table of

@@ -1,6 +1,7 @@
-# outcome: timeout
+
 # expected: sat
 
+# old outcome: timeout
 # "choice" version of "unique_unsafe_triv.nun"
 
 val u : type.
