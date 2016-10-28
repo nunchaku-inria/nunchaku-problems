@@ -13,9 +13,9 @@ rec is_bar : foo -> prop :=
   is_bar D = false.
 
 copy bar := foo
+  subset is_bar
   abstract bar_of_foo
-  concrete foo_of_bar
-  pred is_bar.
+  concrete foo_of_bar.
 
 goal
   exists a (b:bar).
