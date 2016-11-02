@@ -1,4 +1,6 @@
 
+provers = [ "nunchaku-cvc4", "nunchaku-paradox", "nunchaku-kodkod" ]
+
 [nunchaku-cvc4]
 
 cmd = "nunchaku --checks -s cvc4 -nc --timeout $timeout $file 2>&1"
