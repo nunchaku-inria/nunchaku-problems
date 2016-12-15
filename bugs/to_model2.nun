@@ -1,7 +1,8 @@
-# outcome: sat with "$to_prod_prop_1" etc. in the model
-# expected: sat without such low-level construct
+# outcome: unknown
+# expected: sat
 
-# Similar to, but more complicated than, "to_model.nun".
+# Similar to, but more complicated than, "to_model.nun". It used to be sat
+# but report an ugly model. Now it has become unknown somehow.
 
 val b : type.
 
