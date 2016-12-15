@@ -1,4 +1,3 @@
-# outcome: "Error: in CVC4: cardinality constraint must be positive"
 # expected: unknown or unsat
 # status: unsat
 

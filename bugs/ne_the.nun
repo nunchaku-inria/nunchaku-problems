@@ -1,8 +1,8 @@
-# outcome: "Error in CVC4: Subexpressions must have a common base type:"
+# outcome: unknown
 # expected: sat
 
-# "The" and "x" obviously have the same type. Extensionality is needed to
-# compare the two values here.
+# Extensionality is needed to compare the two values here.
+# This should be easy (even without prototypes?).
 
 val a : type.
 

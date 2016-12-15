@@ -2,7 +2,9 @@
 # expected: sat
 # status: sat
 
-### It looks like it is CVC4's fault here.
+# We had the comment (probably by Simon C.):
+#   It looks like it is CVC4's fault here.
+# But the same issue arises with the other backends. We must investigate.
 
 data nat :=
   zero

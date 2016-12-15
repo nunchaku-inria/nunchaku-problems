@@ -1,8 +1,16 @@
-# outcome: sat
+# outcome: unknown
 # expected: sat
 
-# (co)inductive types with need for mutualization
-# This used to be quite slow but appears to have gotten faster (17 s -> 2.5 s?).
+# This used to be "sat" but slow. Then the following comment was added
+# (presumably by Simon C.):
+#   (co)inductive types with need for mutualization
+#   This used to be quite slow but appears to have gotten faster (17 s -> 2.5 s?).
+# Now it has become unknown.
+
+# What is also very worrying about the example is that the one-point rule
+# should apply, namely the goal is equivalent to true (there always exists a
+# value n such that foo bar = n, where foo bar doesn't depend on n). We need
+# to add optimizations to Nunchaku for such cases (Nitpick had them too).
 
 # prelude: nat
 data nat :=
