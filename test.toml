@@ -1,11 +1,19 @@
 
-provers = [ "nunchaku-cvc4", "nunchaku-paradox", "nunchaku-kodkod" ]
+provers = [ "nunchaku-cvc4", "nunchaku-paradox", "nunchaku-kodkod", "nunchaku-smbc" ]
 
 [nunchaku-cvc4]
 
 cmd = "nunchaku --checks -s cvc4 -nc --timeout $timeout $file 2>&1"
 unsat = "UNSAT"
 sat = "SAT:"
+unknown = "TIMEOUT|UNKNOWN"
+timeout = "TIMEOUT"
+
+[nunchaku-smbc]
+
+cmd = "nunchaku --checks -s smbc -nc --timeout $timeout $file 2>&1"
+unsat = "UNSAT"
+sat = "SAT :model"
 unknown = "TIMEOUT|UNKNOWN"
 timeout = "TIMEOUT"
 
@@ -30,6 +38,6 @@ timeout = "TIMEOUT"
 memory = 4000
 timeout=10
 problems = ".*.nun"
-provers = [ "nunchaku-cvc4", "nunchaku-paradox", "nunchaku-kodkod" ]
+provers = [ "nunchaku-cvc4", "nunchaku-paradox", "nunchaku-kodkod", "nunchaku-smbc" ]
 dir = [ "fixed_bugs", "tests" ]
 
