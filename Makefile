@@ -20,8 +20,13 @@ J=1
 bugs:
 	@frogtest run $(FROGTEST_OPTS) -c test.toml --junit bugs.xml -j $J $@
 
+SHOULD_PASS_PROVERS=nunchaku-cvc4,nunchaku-paradox,nunchaku-kodkod
+
 should_pass:
-	@frogtest run $(FROGTEST_OPTS) -c test.toml --junit should_pass.xml -j $J
+	@frogtest run $(FROGTEST_OPTS) -c test.toml -p $(SHOULD_PASS_PROVERS) --junit should_pass.xml -j $J
+
+smbc:
+	@frogtest run $(FROGTEST_OPTS) -c test.toml -p smbc --junit smbc.xml -j $J
 
 bisect-clean:
 	rm -f bisect*.out
