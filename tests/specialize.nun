@@ -1,6 +1,6 @@
 
 # designed for testing specialization
-# expect: unknown
+# expect: sat
 
 data nat := Z | S nat.
 
