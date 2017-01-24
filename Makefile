@@ -26,7 +26,7 @@ should_pass:
 	@frogtest run $(FROGTEST_OPTS) -c test.toml -p $(SHOULD_PASS_PROVERS) --junit should_pass.xml -j $J
 
 smbc:
-	@frogtest run $(FROGTEST_OPTS) -c test.toml -p smbc --junit smbc.xml -j $J
+	@frogtest run $(FROGTEST_OPTS) -c test.toml -p nunchaku-smbc --junit smbc.xml -j $J
 
 bisect-clean:
 	rm -f bisect*.out
