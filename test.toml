@@ -15,14 +15,14 @@ timeout = "TIMEOUT"
 cmd = "nunchaku --checks -s smbc -nc --timeout $timeout $file 2>&1"
 binary_deps = [ "smbc" ]
 unsat = "UNSAT"
-sat = "SAT :model"
+sat = "SAT:"
 unknown = "TIMEOUT|UNKNOWN"
 timeout = "TIMEOUT"
 
 [nunchaku-kodkod]
 
 cmd = "nunchaku --checks -s kodkod -nc --timeout $timeout $file 2>&1"
-binary_deps = [ "kodkod" ]
+binary_deps = [ "kodkodi" ]
 unsat = "UNSAT"
 sat = "SAT:"
 unknown = "TIMEOUT|UNKNOWN"
