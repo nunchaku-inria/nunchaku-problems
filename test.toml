@@ -4,6 +4,7 @@ provers = [ "nunchaku-cvc4", "nunchaku-paradox", "nunchaku-kodkod", "nunchaku-sm
 [nunchaku-cvc4]
 
 cmd = "nunchaku --checks -s cvc4 -nc --timeout $timeout $file 2>&1"
+binary_deps = [ "cvc4" ]
 unsat = "UNSAT"
 sat = "SAT:"
 unknown = "TIMEOUT|UNKNOWN"
@@ -12,6 +13,7 @@ timeout = "TIMEOUT"
 [nunchaku-smbc]
 
 cmd = "nunchaku --checks -s smbc -nc --timeout $timeout $file 2>&1"
+binary_deps = [ "smbc" ]
 unsat = "UNSAT"
 sat = "SAT :model"
 unknown = "TIMEOUT|UNKNOWN"
@@ -20,6 +22,7 @@ timeout = "TIMEOUT"
 [nunchaku-kodkod]
 
 cmd = "nunchaku --checks -s kodkod -nc --timeout $timeout $file 2>&1"
+binary_deps = [ "kodkod" ]
 unsat = "UNSAT"
 sat = "SAT:"
 unknown = "TIMEOUT|UNKNOWN"
@@ -28,6 +31,7 @@ timeout = "TIMEOUT"
 [nunchaku-paradox]
 
 cmd = "nunchaku --checks -s paradox -nc --timeout $timeout $file 2>&1"
+binary_deps = [ "paradox" ]
 unsat = "UNSAT"
 sat = "SAT:"
 unknown = "TIMEOUT|UNKNOWN"
