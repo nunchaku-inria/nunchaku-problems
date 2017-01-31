@@ -20,7 +20,7 @@ J=1
 bugs:
 	@frogtest run $(FROGTEST_OPTS) -c test.toml --junit bugs.xml -j $J $@
 
-SHOULD_PASS_PROVERS=nunchaku-cvc4,nunchaku-paradox,nunchaku-kodkod
+SHOULD_PASS_PROVERS=nunchaku-cvc4,nunchaku-paradox,nunchaku-kodkod,nunchaku-smbc
 
 should_pass:
 	@frogtest run $(FROGTEST_OPTS) -c test.toml -p $(SHOULD_PASS_PROVERS) --junit should_pass.xml -j $J
