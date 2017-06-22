@@ -1,4 +1,15 @@
 # expect: sat
+# outcome: With SMBC as backend, we get
+#   UNKNOWN
+#   (BACKEND_ERROR {backend:smbc, time:0.0s} smbc failed with errcode 2, output:
+#   `Fatal error: exception Bad model:
+#     goal `(not (or (not (= xs_ (rev_ (rev_ xs_)))) (= Nil_ xs_)))`
+#     evaluates to `(not (or (not (and (= ?a__0 ?a__0) true)) false))`,
+#     not true,
+#     in model ((type a_ ())
+#               (val xs_ (Cons_ ?a__0 Nil_)))
+#   
+#   `)
 
 val a_ : type.
 
