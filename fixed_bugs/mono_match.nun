@@ -13,7 +13,7 @@ data prod :=
   Pair nat nat.
 
 rec intrel : prod -> prod -> prop :=
-  intrel = (fun uu2. match uu2 with  | Pair uu11 uu12 -> fun uu2. match uu2 with  | Pair uu11 uu12 -> plus uu11 uu12 = plus uu11 uu12 end end).
+  intrel = (fun uu2. match uu2 with  | Pair uu11 uu12 -> fun uu2. match uu2 with  | Pair uu11_ uu12_ -> plus uu11_ uu12_ = plus uu11 uu12 end end).
 
 copy int := prod
   partial_quotient intrel
