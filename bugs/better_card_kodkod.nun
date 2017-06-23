@@ -10,6 +10,6 @@ data option a := None | Some a.
 
 val a : option foo.
 
-goal ~ (a = None && a = Some A && a = Some B).
+goal ~ (a = None || a = Some A || a = Some B).
 
 
