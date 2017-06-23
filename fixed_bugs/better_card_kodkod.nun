@@ -1,5 +1,6 @@
 
 # expected: unsat
+# solver: kodkod
 
 # With kodkod, we know that card(option foo)=3, so we should not iterate
 # cardinalities further.
