@@ -1,32 +1,30 @@
 
-FROGTEST_OPTS= 
+TEST_OPTS=
+TEST_TOOL=logitest
 
-ifeq ($(NO_CACHING),1)
-  FROGTEST_OPTS += --no-caching
-endif
-ifeq ($(WEB),1)
-  FROGTEST_OPTS += --web
-endif
+all: should_pass bugs
 
-all: update should_pass bugs
+# cold start
+cold: update all
 
-update:
+update: $(TEST_TOOL)
 	@killall nunchaku || true
 	@opam install nunchaku --yes
 	@opam upgrade nunchaku --yes
 
-J=1
-
 bugs:
-	@frogtest run $(FROGTEST_OPTS) -c test.toml --junit bugs.xml -j $J $@
+	@$(TEST_TOOL) run $(TEST_OPTS) -c test.toml --junit bugs.xml $@
 
 SHOULD_PASS_PROVERS=nunchaku-cvc4,nunchaku-paradox,nunchaku-kodkod,nunchaku-smbc
 
 should_pass:
-	@frogtest run $(FROGTEST_OPTS) -c test.toml -p $(SHOULD_PASS_PROVERS) --junit should_pass.xml -j $J
+	@$(TEST_TOOL) run $(TEST_OPTS) -c test.toml -p $(SHOULD_PASS_PROVERS) --junit should_pass.xml
 
 smbc:
-	@frogtest run $(FROGTEST_OPTS) -c test.toml -p nunchaku-smbc --junit smbc.xml -j $J
+	@$(TEST_TOOL) run $(TEST_OPTS) -c test.toml -p nunchaku-smbc --junit smbc.xml
+
+logitest:
+	@if !(which $(TEST_TOOL) > /dev/null) ; then echo "please install $(TEST_TOOL)"; exit 1; fi
 
 bisect-clean:
 	rm -f bisect*.out
