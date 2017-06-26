@@ -39,7 +39,7 @@ timeout = "TIMEOUT"
 
 [test]
 
-memory = 4000
+memory = 6000
 timeout=10
 problems = ".*.nun"
 provers = [ "nunchaku-cvc4", "nunchaku-paradox", "nunchaku-kodkod", "nunchaku-smbc" ]
