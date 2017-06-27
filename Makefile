@@ -1,5 +1,5 @@
 
-TEST_OPTS=
+TEST_OPTS= -j 2
 TEST_TOOL=logitest
 
 all: should_pass bugs
