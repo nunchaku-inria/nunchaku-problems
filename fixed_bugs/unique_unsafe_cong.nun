@@ -1,6 +1,6 @@
 # outcome: "type error when applying ..."
-# expected: sat (with specialization); unsat (otherwise)
-# status: unsat
+
+# expected: unsat
 
 # We violate "unique_unsafe"'s precondition. Nunchaku should specialize the two terms
 # independently of each other, resulting in "sat". But in an abstract, conceptual sense,
