@@ -1,0 +1,25 @@
+# outcome: Paradox: parsing model failed:
+# expected: sat
+
+# 1. When Nunchaku fails at parsing a Paradox model, it should at least
+#    produce ?__unparsable (cf. CVC4, SMBC).
+#
+# 2. Our Paradox parser obviously needs some work.
+
+val a : type.
+
+val nat : type.
+
+val zero : nat.
+val Suc : nat -> nat.
+
+val set : type.
+
+val fold : (a -> nat -> nat) -> nat -> set -> nat.
+rec card : set -> nat :=
+  forall (A : set). card A = fold (fun (x : a). Suc) zero A.
+
+val A : set.
+val n : nat.
+
+goal ~ (card A = n).
