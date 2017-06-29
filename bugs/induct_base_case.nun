@@ -1,5 +1,5 @@
-# outcome: "ill-formed term: inductive predicate `dummy` requires at least one base case"
-# expected: unknown (ideally, even unsat, but this might be lost in translation)
+# expect: unknown
+# (ideally, even unsat, but this might be lost in translation)
 
 val a : type.
 
