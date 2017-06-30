@@ -1,4 +1,4 @@
-# outcome: sat, with spurious type in model
+# outcome: sat, with spurious type in Kodkod model
 # expected: sat
 
 # "to_a_a" is spurious in the model:
