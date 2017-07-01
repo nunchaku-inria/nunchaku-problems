@@ -1,4 +1,4 @@
-# outcome: type error
+# outcome: type error (with Kodkod, CVC4, Paradox) and exception (with SMBC)
 # expected: sat
 
 # Details:
