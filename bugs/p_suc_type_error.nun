@@ -1,0 +1,20 @@
+# outcome: type error
+# expected: sat
+
+# Details:
+# Error: type error
+#   when applying ((to nat nat) -> prop)
+#   on Suc : (nat -> nat)
+#   in subst {}: type mismatch on first argument
+
+# Everything is fine with this axiomatization:
+#   val nat : type.
+#   val Suc : nat -> nat.
+
+data nat :=
+  zero
+| Suc nat.
+
+val P : (nat -> nat) -> prop.
+
+goal ~ P Suc.
