@@ -1,11 +1,5 @@
-# outcome: Error: type error
-# expected: sat
 
-# Details:
-# Error: type error
-#   when applying (nat -> prop)
-#   on Suc : (nat -> nat)
-#   in subst {}: type mismatch on first argument
+# expected: sat
 
 data nat :=
   zero

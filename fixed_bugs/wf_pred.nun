@@ -1,8 +1,11 @@
 
 
-# error because not well founded
 
-# expected: error
+# NOTE (Simon C.) this is found to be unsat by at least CVC4
+# old status wat: "error because not well founded"
+# but we do not check for well-foundedness
+
+# expected: unsat
 # outcome: sat
 
 # See "wf_pred0.nun" first.

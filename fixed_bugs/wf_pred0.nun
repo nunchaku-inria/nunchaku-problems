@@ -1,27 +1,7 @@
 
-# error because well founded
-# expected: error
-# outcome: sat
+# expected: unsat
 
-# A variant of "wf_pred.nun", with finite types.
-# "is_one_v1" should return "true" for "One" and "false" for "Zero".
-# Nunchaku gives an incorrect model. With "is_one_v2", everything works as
-# expected. "is_one_v1" should be translated to "is_one_v2". In particular,
-# it is wrong to let the exists guard appear inside an *unpolarized* context.
-#
-#  axiom
-#    forall a/26:G_is_one_v1.
-#      (is_one_v1 (proj_G_is_one_v1_0 a/26))
-#      =
-#      (exists n/27:nat.
-#         ((is_one_v1 n/27)
-#          asserting
-#            (exists a/28:G_is_one_v1. n/27 = (proj_G_is_one_v1_0 a/28)))
-#         && ((proj_G_is_one_v1_0 a/26)
-#             =
-#             ((always_one n/27)
-#              asserting
-#                (exists a/29:G_always_one. n/27 = (proj_G_always_one_0 a/29))))).
+# used to be wrongly found "sat"
 
 data nat :=
   Zero

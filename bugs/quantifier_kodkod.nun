@@ -1,9 +1,9 @@
+
 # outcome: sat (with Kodkod)
-# outcome: unknown (with SMBC)
+# outcome: unsat (with SMBC v4)
 # expected: unsat
 
-# There's definitely a bug in the Kodkod encoding. In addition, it's surprising that
-# SMBC doesn't manage such easy finite problems.
+# There's definitely a bug in the Kodkod encoding.
 
 data x := A | B | C | D | E | F | G | H | I | J | K | L.
 
