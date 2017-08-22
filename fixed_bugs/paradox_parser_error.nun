@@ -1,10 +1,7 @@
-# outcome: Paradox: parsing model failed:
 # expected: sat
 
-# 1. When Nunchaku fails at parsing a Paradox model, it should at least
-#    produce ?__unparsable (cf. CVC4, SMBC).
-#
-# 2. Our Paradox parser obviously needs some work.
+
+# old outcome: would fail to parse paradox' model.
 
 val a : type.
 

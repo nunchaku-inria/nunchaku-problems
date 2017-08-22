@@ -1,6 +1,7 @@
-# expected: sat with smbc
-# outcome: unknown
 
+# expected: sat
+
+# old outcome:
 # The "elim_quant" phase transforms "rot C = D" into "false".
 #
 # 1. It should be "true", not "false".

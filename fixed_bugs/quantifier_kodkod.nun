@@ -1,9 +1,7 @@
 
-# outcome: sat (with Kodkod)
-# outcome: unsat (with SMBC v4)
 # expected: unsat
 
-# There's definitely a bug in the Kodkod encoding.
+# careful when encoding datatypes, cardinalities matter
 
 data x := A | B | C | D | E | F | G | H | I | J | K | L.
 
