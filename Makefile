@@ -17,6 +17,9 @@ bugs:
 
 SHOULD_PASS_PROVERS=nunchaku-cvc4,nunchaku-paradox,nunchaku-kodkod,nunchaku-smbc
 
+quick:
+	@$(TEST_TOOL) run $(TEST_OPTS) -c test.toml -p nunchaku --junit quick.xml
+
 should_pass:
 	@$(TEST_TOOL) run $(TEST_OPTS) -c test.toml -p $(SHOULD_PASS_PROVERS) --junit should_pass.xml
 

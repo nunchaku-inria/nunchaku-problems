@@ -1,5 +1,14 @@
 
-provers = [ "nunchaku-cvc4", "nunchaku-paradox", "nunchaku-kodkod", "nunchaku-smbc" ]
+provers = [ "nunchaku", "nunchaku-cvc4", "nunchaku-paradox", "nunchaku-kodkod", "nunchaku-smbc" ]
+
+[nunchaku]
+
+cmd = "nunchaku --checks -nc --timeout $timeout $file 2>&1"
+binary_deps = [ "cvc4", "paradox", "smbc", "kodkod" ]
+unsat = "UNSAT"
+sat = "SAT:"
+unknown = "TIMEOUT|UNKNOWN"
+timeout = "TIMEOUT"
 
 [nunchaku-cvc4]
 
