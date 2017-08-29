@@ -1,5 +1,6 @@
-# outcome: sat (with Kodkod)
 # expected: unsat
+
+# old outcome: sat (with Kodkod)
 
 val a : type.
 

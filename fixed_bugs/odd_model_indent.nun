@@ -1,5 +1,6 @@
-# outcome: sat, with last line of model ("val one := Suc zero.") too far to the left
 # expected: sat
+
+# old outcome: sat, with last line of model ("val one := Suc zero.") too far to the left
 
 val a : type.
 
