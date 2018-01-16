@@ -18,12 +18,14 @@ bugs:
 SHOULD_PASS_PROVERS=nunchaku-cvc4,nunchaku-paradox,nunchaku-kodkod,nunchaku-smbc
 
 quick:
-	@$(TEST_TOOL) run $(TEST_OPTS) -c test.toml -p nunchaku --junit quick.xml
+	@mkdir -p snapshots
+	@$(TEST_TOOL) run $(TEST_OPTS) -c test.toml -p $(SHOULD_PASS_PROVERS) \
+	  --junit quick.xml --summary snapshots/quick-`date -Im`.txt
 
 should_pass:
 	@mkdir -p snapshots
 	$(TEST_TOOL) run $(TEST_OPTS) -c test.toml -p $(SHOULD_PASS_PROVERS) \
-	  --junit should_pass.xml --summary snapshots/`date -Im`.txt
+	  --junit should_pass.xml --summary snapshots/should-pass-`date -Im`.txt
 
 smbc:
 	@$(TEST_TOOL) run $(TEST_OPTS) -c test.toml -p nunchaku-smbc --junit smbc.xml
