@@ -1,4 +1,5 @@
 # expect: sat
+
 # outcome: With SMBC as backend, we get
 #   UNKNOWN
 #   (BACKEND_ERROR {backend:smbc, time:0.0s} smbc failed with errcode 2, output:
