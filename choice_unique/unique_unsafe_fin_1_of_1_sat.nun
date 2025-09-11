@@ -1,0 +1,6 @@
+data digit :=
+  Zero
+| One
+| Two.
+
+goal unique_unsafe (fun x. x = Zero) = Zero.

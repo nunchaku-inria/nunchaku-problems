@@ -1,0 +1,5 @@
+data nat :=
+  Zero
+| Suc nat.
+
+goal unique_unsafe (fun x. x = Zero) = Zero.

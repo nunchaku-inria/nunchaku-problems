@@ -1,0 +1,6 @@
+data digit :=
+  Zero
+| One
+| Two.
+
+goal unique (fun x. x = Zero) = Zero.
