@@ -1,0 +1,6 @@
+data digit :=
+  Zero
+| One
+| Two.
+
+goal ~ (choice (fun x. x = Zero || x = One) = choice (fun x. x = One || x = Zero)).

@@ -1,0 +1,5 @@
+data nat :=
+  Zero
+| Suc nat.
+
+goal ~ (choice (fun x. x = Zero || x = Suc Zero) = choice (fun x. x = Suc Zero || x = Zero)).
