@@ -1,0 +1,5 @@
+data nat :=
+  Zero
+| Suc nat.
+
+goal ~ (unique (fun x. x = Zero || x = Suc Zero) = unique (fun x. x = Suc Zero || x = Suc (Suc Zero))).
