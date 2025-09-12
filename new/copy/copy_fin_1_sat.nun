@@ -1,0 +1,10 @@
+data digit :=
+  Zero
+| One
+| Two.
+
+copy my_digit := digit
+  abstract my_digit_of_digit
+  concrete digit_of_my_digit.
+
+goal digit_of_my_digit (my_digit_of_digit One) = One.

@@ -1,0 +1,11 @@
+data digit :=
+  Zero
+| One
+| Two.
+
+copy my_digit := digit
+  partial_quotient (fun x y. (x = One || x = Two) && (y = One || y = Two))
+  abstract my_digit_of_digit
+  concrete digit_of_my_digit.
+
+goal exists (x : my_digit) (y : my_digit). ~ (x = y).

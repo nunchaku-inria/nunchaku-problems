@@ -1,0 +1,11 @@
+data digit :=
+  Zero
+| One
+| Two.
+
+copy my_digit := digit
+  quotient (fun x y. x = y || ((x = One || x = Two) && (y = One || y = Two)))
+  abstract my_digit_of_digit
+  concrete digit_of_my_digit.
+
+goal my_digit_of_digit One = my_digit_of_digit Two.
