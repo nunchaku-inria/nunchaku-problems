@@ -1,0 +1,8 @@
+data nat :=
+  Zero
+| Suc nat.
+
+val x : nat -> prop.
+val y : nat -> prop.
+
+goal x = y.
