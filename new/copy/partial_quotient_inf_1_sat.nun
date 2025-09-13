@@ -1,0 +1,10 @@
+data nat :=
+  Zero
+| Suc nat.
+
+copy my_nat := nat
+  partial_quotient (fun x y. (x = Suc Zero || x = Suc (Suc Zero)) && (y = Suc Zero || y = Suc (Suc Zero)))
+  abstract my_nat_of_nat
+  concrete nat_of_my_nat.
+
+goal my_nat_of_nat (Suc Zero) = my_nat_of_nat (Suc (Suc Zero)).

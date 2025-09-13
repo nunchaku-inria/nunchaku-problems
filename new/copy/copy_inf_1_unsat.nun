@@ -1,0 +1,9 @@
+data nat :=
+  Zero
+| Suc nat.
+
+copy my_nat := nat
+  abstract my_nat_of_nat
+  concrete nat_of_my_nat.
+
+goal nat_of_my_nat (my_nat_of_nat (Suc (Suc Zero))) = Suc Zero.

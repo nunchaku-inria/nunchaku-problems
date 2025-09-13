@@ -1,0 +1,12 @@
+# don't check in!
+
+data nat :=
+  Zero
+| Suc nat.
+
+copy my_nat := nat
+  quotient (fun x y. x = y || (x = Suc Zero || x = Suc (Suc Zero)) && (y = Suc Zero || y = Suc (Suc Zero)))
+  abstract mn_of_n
+  concrete n_of_mn.
+
+goal mn_of_n (Suc Zero) = mn_of_n Zero.
